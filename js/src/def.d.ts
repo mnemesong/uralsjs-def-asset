@@ -1,4 +1,12 @@
 export declare const renderer: {
+    "btn-success": (params: Record<string, string | number>, content: string) => string;
+    "btn-danger": (params: Record<string, string | number>, content: string) => string;
+    "btn-warning": (params: Record<string, string | number>, content: string) => string;
+    "btn-info": (params: Record<string, string | number>, content: string) => string;
+    "btn-white": (params: Record<string, string | number>, content: string) => string;
+    "btn-dark": (params: Record<string, string | number>, content: string) => string;
+    "btn-primary": (params: Record<string, string | number>, content: string) => string;
+    "btn-secondary": (params: Record<string, string | number>, content: string) => string;
     "text-input": (params: Record<string, string | number>, content: string) => string;
     "number-input": (params: Record<string, string | number>, content: string) => string;
     "date-input": (params: Record<string, string | number>, content: string) => string;

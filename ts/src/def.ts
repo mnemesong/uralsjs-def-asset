@@ -13,4 +13,5 @@ export const renderer = {
     ...tags.btnInputs.renderer,
     ...tags.checkInputs.renderer,
     ...tags.formControlInputs.renderer,
+    ...tags.btns.renderer,
 }

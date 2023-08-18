@@ -37,25 +37,26 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.renderer = exports.literals = void 0;
 var t = __importStar(require("uralsjs-templator"));
 exports.literals = [
-    'button-input',
-    'reset-input',
-    'submit-input',
+    'btn-success',
+    'btn-danger',
+    'btn-warning',
+    'btn-info',
+    'btn-white',
+    'btn-dark',
+    'btn-primary',
+    'btn-secondary',
 ];
 exports.renderer = {};
 exports.literals.forEach(function (l) {
     exports.renderer[l] = function (params, content) {
-        var type = l.split('-')[0];
+        var type = l.split('-')[1];
         var cls = params.class
-            ? (((typeof params.class === 'string'
-                ? params.class
-                : params.class.toString()).includes('btn-')
-                ? ('btn ' + params.class)
-                : ('btn btn-primary ' + params.class)))
-            : ('btn btn-primary');
+            ? ('btn btn-' + type + ' ' + params.class)
+            : ('btn btn-' + type);
         var paramsText = t.dsl
             .abstracts
             .record
-            .render(__assign(__assign({ type: type }, params), { class: cls }));
-        return "<input ".concat(paramsText, ">");
+            .render(__assign(__assign({ type: 'button' }, params), { class: cls }));
+        return "<button ".concat(paramsText, ">").concat(content, "</button>");
     };
 });

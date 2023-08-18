@@ -25,33 +25,74 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var templator = __importStar(require("uralsjs-templator"));
 var index = __importStar(require("../src"));
-var page = templator.tag.typecheck(['screen-color',
+var page1 = templator.tag.typecheck(['screen-color',
     {},
     ['padding-container',
         { 'class': "position-relative" },
-        ['very-white-panel', {
-                class: 'center-container mt-5 p-3',
-                style: 'width: 400px; height: min-content;'
-            },
-            ['grid-gap-20',
-                {},
-                ['h3',
+        ['div',
+            { class: "d-grid w-100", style: "grid-template-columns: 1fr 400px 1fr" },
+            '&nbsp;',
+            ['very-white-panel',
+                {
+                    class: 'mt-5 mb-5 w-100 p-3',
+                    style: 'height: min-content;'
+                },
+                ['grid-gap-20',
                     {},
-                    "Авторизация"
+                    ['h3',
+                        {},
+                        "Авторизация"
+                    ],
+                    ['text-input'],
+                    ['date-input'],
+                    ['file-input'],
+                    ['image-input'],
+                    ['month-input'],
+                    ['search-input'],
+                    ['url-input'],
+                    ['submit-input'],
                 ],
-                ['text-input'],
-                ['date-input'],
-                ['file-input'],
-                ['image-input'],
-                ['month-input'],
-                ['search-input'],
-                ['url-input'],
-                ['submit-input'],
-            ]
+            ],
+            '&nbsp;',
         ]
     ],
 ], index.def.renderer);
+var page2 = templator.tag.typecheck([
+    'screen-photo',
+    { photo: './1.jpg' },
+    [
+        'padding-container',
+        {},
+        [
+            'grid-gap-30',
+            { style: "grid-template-columns: 1fr 1fr;" },
+            [
+                'white-panel',
+                {},
+                'das98dnas89dn9as',
+                ['br'],
+                [
+                    'btn-info',
+                    {},
+                    "Success"
+                ]
+            ],
+            [
+                'white-panel',
+                {},
+                'das98dnas89dn9as',
+                ['br'],
+                [
+                    'btn-info',
+                    {},
+                    "Success"
+                ]
+            ],
+        ]
+    ]
+], index.def.renderer);
 var render = function () {
-    document.body.innerHTML = templator.tag.render(page, index.def.renderer);
+    document.body.innerHTML = templator.tag.render(page1, index.def.renderer)
+        + templator.tag.render(page2, index.def.renderer);
 };
 render();
