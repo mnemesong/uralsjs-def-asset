@@ -11,3 +11,36 @@ export * as formControlInputs from "./form-control-inputs"
 export * as btns from "./btns"
 export * as navTopPanel from "./nav-top-panel"
 export * as navTopSpace from "./nav-top-space"
+
+import * as t from "uralsjs-templator"
+
+import * as gridGap from "./grid-gap"
+import * as overlayerGallery from "./overlayer-gallery"
+import * as whitePanel from "./white-panel"
+import * as screenPhoto from "./screen-photo"
+import * as screenColor from "./screen-color"
+import * as paddingContainer from "./padding-container"
+import * as veryWhitePanel from "./very-white-panel"
+import * as btnInputs from "./btn-inputs"
+import * as checkInputs from './check-inputs'
+import * as formControlInputs from "./form-control-inputs"
+import * as btns from "./btns"
+import * as navTopPanel from "./nav-top-panel"
+import * as navTopSpace from "./nav-top-space"
+
+export const renderer = {
+    ...t.html.config,
+    ...gridGap.renderer,
+    ...overlayerGallery.renderer,
+    ...whitePanel.renderer,
+    ...veryWhitePanel.renderer,
+    ...screenColor.renderer,
+    ...screenPhoto.renderer,
+    ...paddingContainer.renderer,
+    ...btnInputs.renderer,
+    ...checkInputs.renderer,
+    ...formControlInputs.renderer,
+    ...btns.renderer,
+    ...navTopPanel.renderer,
+    ...navTopSpace.renderer,
+}

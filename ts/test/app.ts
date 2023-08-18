@@ -34,7 +34,7 @@ const page1 = templator.typecheck(
             ]
         ],
     ],
-    index.def.renderer
+    index.tags.renderer
 )
 
 const page2 = templator.typecheck(
@@ -72,14 +72,14 @@ const page2 = templator.typecheck(
             ]
         ]
     ],
-    index.def.renderer
+    index.tags.renderer
 )
 
 const render = () => {
-    document.body.innerHTML = templator.render(['nav-top-panel'], index.def.renderer)
-        + templator.render(['nav-top-space'], index.def.renderer)
-        + templator.render(page1, index.def.renderer)
-        + templator.render(page2, index.def.renderer)
+    document.body.innerHTML = templator.render(['nav-top-panel'], index.tags.renderer)
+        + templator.render(['nav-top-space'], index.tags.renderer)
+        + templator.render(page1, index.tags.renderer)
+        + templator.render(page2, index.tags.renderer)
 }
 
 render()

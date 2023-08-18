@@ -45,49 +45,7 @@ var getPath = function () { return p
     .resolve(module.path, "..", "..", "resources"); };
 exports.getPath = getPath;
 
-},{"path":19}],2:[function(require,module,exports){
-"use strict";
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.renderer = void 0;
-var t = __importStar(require("uralsjs-templator"));
-var tags = __importStar(require("./tags"));
-exports.renderer = __assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign({}, t.html.config), tags.gridGap.renderer), tags.overlayerGallery.renderer), tags.whitePanel.renderer), tags.veryWhitePanel.renderer), tags.screenColor.renderer), tags.screenPhoto.renderer), tags.paddingContainer.renderer), tags.btnInputs.renderer), tags.checkInputs.renderer), tags.formControlInputs.renderer), tags.btns.renderer), tags.navTopPanel.renderer), tags.navTopSpace.renderer);
-
-},{"./tags":9,"uralsjs-templator":26}],3:[function(require,module,exports){
+},{"path":18}],2:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -113,12 +71,11 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.css = exports.def = exports.tags = void 0;
+exports.css = exports.tags = void 0;
 exports.tags = __importStar(require("./tags"));
-exports.def = __importStar(require("./def"));
 exports.css = __importStar(require("./css"));
 
-},{"./css":1,"./def":2,"./tags":9}],4:[function(require,module,exports){
+},{"./css":1,"./tags":8}],3:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -181,7 +138,7 @@ exports.literals.forEach(function (l) {
     };
 });
 
-},{"uralsjs-templator":26}],5:[function(require,module,exports){
+},{"uralsjs-templator":25}],4:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -245,7 +202,7 @@ exports.literals.forEach(function (l) {
     };
 });
 
-},{"uralsjs-templator":26}],6:[function(require,module,exports){
+},{"uralsjs-templator":25}],5:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -304,7 +261,7 @@ exports.literals.forEach(function (l) {
     };
 });
 
-},{"uralsjs-templator":26}],7:[function(require,module,exports){
+},{"uralsjs-templator":25}],6:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -374,7 +331,7 @@ exports.literals.forEach(function (l) {
     };
 });
 
-},{"uralsjs-templator":26}],8:[function(require,module,exports){
+},{"uralsjs-templator":25}],7:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -434,8 +391,19 @@ exports.literals.forEach(function (l) {
     };
 });
 
-},{"uralsjs-templator":26}],9:[function(require,module,exports){
+},{"uralsjs-templator":25}],8:[function(require,module,exports){
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     var desc = Object.getOwnPropertyDescriptor(m, k);
@@ -460,7 +428,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.navTopSpace = exports.navTopPanel = exports.btns = exports.formControlInputs = exports.checkInputs = exports.btnInputs = exports.veryWhitePanel = exports.paddingContainer = exports.screenColor = exports.screenPhoto = exports.whitePanel = exports.overlayerGallery = exports.gridGap = void 0;
+exports.renderer = exports.navTopSpace = exports.navTopPanel = exports.btns = exports.formControlInputs = exports.checkInputs = exports.btnInputs = exports.veryWhitePanel = exports.paddingContainer = exports.screenColor = exports.screenPhoto = exports.whitePanel = exports.overlayerGallery = exports.gridGap = void 0;
 exports.gridGap = __importStar(require("./grid-gap"));
 exports.overlayerGallery = __importStar(require("./overlayer-gallery"));
 exports.whitePanel = __importStar(require("./white-panel"));
@@ -474,8 +442,23 @@ exports.formControlInputs = __importStar(require("./form-control-inputs"));
 exports.btns = __importStar(require("./btns"));
 exports.navTopPanel = __importStar(require("./nav-top-panel"));
 exports.navTopSpace = __importStar(require("./nav-top-space"));
+var t = __importStar(require("uralsjs-templator"));
+var gridGap = __importStar(require("./grid-gap"));
+var overlayerGallery = __importStar(require("./overlayer-gallery"));
+var whitePanel = __importStar(require("./white-panel"));
+var screenPhoto = __importStar(require("./screen-photo"));
+var screenColor = __importStar(require("./screen-color"));
+var paddingContainer = __importStar(require("./padding-container"));
+var veryWhitePanel = __importStar(require("./very-white-panel"));
+var btnInputs = __importStar(require("./btn-inputs"));
+var checkInputs = __importStar(require("./check-inputs"));
+var formControlInputs = __importStar(require("./form-control-inputs"));
+var btns = __importStar(require("./btns"));
+var navTopPanel = __importStar(require("./nav-top-panel"));
+var navTopSpace = __importStar(require("./nav-top-space"));
+exports.renderer = __assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign({}, t.html.config), gridGap.renderer), overlayerGallery.renderer), whitePanel.renderer), veryWhitePanel.renderer), screenColor.renderer), screenPhoto.renderer), paddingContainer.renderer), btnInputs.renderer), checkInputs.renderer), formControlInputs.renderer), btns.renderer), navTopPanel.renderer), navTopSpace.renderer);
 
-},{"./btn-inputs":4,"./btns":5,"./check-inputs":6,"./form-control-inputs":7,"./grid-gap":8,"./nav-top-panel":10,"./nav-top-space":11,"./overlayer-gallery":12,"./padding-container":13,"./screen-color":14,"./screen-photo":15,"./very-white-panel":16,"./white-panel":17}],10:[function(require,module,exports){
+},{"./btn-inputs":3,"./btns":4,"./check-inputs":5,"./form-control-inputs":6,"./grid-gap":7,"./nav-top-panel":9,"./nav-top-space":10,"./overlayer-gallery":11,"./padding-container":12,"./screen-color":13,"./screen-photo":14,"./very-white-panel":15,"./white-panel":16,"uralsjs-templator":25}],9:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -533,7 +516,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":26}],11:[function(require,module,exports){
+},{"uralsjs-templator":25}],10:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -589,7 +572,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":26}],12:[function(require,module,exports){
+},{"uralsjs-templator":25}],11:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -664,7 +647,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":26}],13:[function(require,module,exports){
+},{"uralsjs-templator":25}],12:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -717,7 +700,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":26}],14:[function(require,module,exports){
+},{"uralsjs-templator":25}],13:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -770,7 +753,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":26}],15:[function(require,module,exports){
+},{"uralsjs-templator":25}],14:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -841,7 +824,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":26}],16:[function(require,module,exports){
+},{"uralsjs-templator":25}],15:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -894,7 +877,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":26}],17:[function(require,module,exports){
+},{"uralsjs-templator":25}],16:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -947,7 +930,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":26}],18:[function(require,module,exports){
+},{"uralsjs-templator":25}],17:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -1006,7 +989,7 @@ var page1 = templator.typecheck(['screen-color',
             '&nbsp;',
         ]
     ],
-], index.def.renderer);
+], index.tags.renderer);
 var page2 = templator.typecheck([
     'screen-photo',
     { photo: './1.jpg' },
@@ -1040,16 +1023,16 @@ var page2 = templator.typecheck([
             ],
         ]
     ]
-], index.def.renderer);
+], index.tags.renderer);
 var render = function () {
-    document.body.innerHTML = templator.render(['nav-top-panel'], index.def.renderer)
-        + templator.render(['nav-top-space'], index.def.renderer)
-        + templator.render(page1, index.def.renderer)
-        + templator.render(page2, index.def.renderer);
+    document.body.innerHTML = templator.render(['nav-top-panel'], index.tags.renderer)
+        + templator.render(['nav-top-space'], index.tags.renderer)
+        + templator.render(page1, index.tags.renderer)
+        + templator.render(page2, index.tags.renderer);
 };
 render();
 
-},{"../src":3,"uralsjs-templator":26}],19:[function(require,module,exports){
+},{"../src":2,"uralsjs-templator":25}],18:[function(require,module,exports){
 (function (process){(function (){
 // 'path' module extracted from Node.js v8.11.1 (only the posix part)
 // transplited with Babel
@@ -1582,7 +1565,7 @@ posix.posix = posix;
 module.exports = posix;
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":20}],20:[function(require,module,exports){
+},{"_process":19}],19:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -1768,7 +1751,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],21:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -1797,7 +1780,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.record = void 0;
 exports.record = __importStar(require("./record"));
 
-},{"./record":22}],22:[function(require,module,exports){
+},{"./record":21}],21:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.render = void 0;
@@ -1808,7 +1791,7 @@ var render = function (t) { return Object
     .join(''); };
 exports.render = render;
 
-},{}],23:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -1965,7 +1948,7 @@ var reducer = function (acc, el) {
 };
 exports.config = exports.literals.reduce(reducer, {});
 
-},{"../config":21}],24:[function(require,module,exports){
+},{"../config":20}],23:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -2009,7 +1992,7 @@ var singleTag = __importStar(require("./single-tag"));
 var doubleTag = __importStar(require("./double-tag"));
 exports.config = __assign(__assign({}, singleTag.config), doubleTag.config);
 
-},{"./double-tag":23,"./single-tag":25}],25:[function(require,module,exports){
+},{"./double-tag":22,"./single-tag":24}],24:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -2076,7 +2059,7 @@ var reducer = function (acc, el) {
 };
 exports.config = exports.literals.reduce(reducer, {});
 
-},{"../config":21}],26:[function(require,module,exports){
+},{"../config":20}],25:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -2120,4 +2103,4 @@ exports.render = render;
 var typecheck = function (t, renderFuncs) { return t; };
 exports.typecheck = typecheck;
 
-},{"./config":21,"./html":24}]},{},[18]);
+},{"./config":20,"./html":23}]},{},[17]);
