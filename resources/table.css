@@ -1,0 +1,31 @@
+.table-d {
+    --bs-table-border-color: #001011;
+    border-color: #001011;
+    color: #001011;
+}
+
+.table-d > tbody > tr:nth-of-type(eveb)  {
+    background-color: #ffffff88;
+}
+
+.table-d > tbody > tr:nth-of-type(eveb) {
+    background-color: #ffffffaa;
+}
+
+.table-d > tbody > tr:nth-of-type(eveb) > * {
+    background-color: #ffffff88;
+}
+
+.table-d > tbody > tr:nth-of-type(eveb) > * {
+    background-color: #ffffffaa;
+}
+
+.table-w {
+    --bs-table-border-color: #fff;
+    border-color: #fff;
+    color: #fff;
+}
+
+.table-w > tbody > tr > * {
+    color: #fff !important;
+}
