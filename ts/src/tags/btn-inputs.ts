@@ -1,23 +1,22 @@
 import * as t from "uralsjs-templator"
 
 export const literals = [
-    'grid-gap-0', 
-    'grid-gap-5', 
-    'grid-gap-10', 
-    'grid-gap-20',
-    'grid-gap-30' 
+    'button-input',
+    'reset-input',
+    'submit-input',
 ] as const
 
 export const renderer = {} as t.dsl.abstracts.render.T<typeof literals[number]>
 literals.forEach(l => {
     renderer[l] = (params, content) => {
+        const type = l.split('-')[0]
         const cls = params.class 
-            ? ('d-grid ' + l + ' ' + params.class) 
-            : ('d-grid ' + l)
+            ? ('btn btn-primary ' + params.class) 
+            : ('btn btn-primary')
         const paramsText = t.dsl
             .abstracts
             .record
-            .render({...params, ...{class: cls}})
-        return `<div ${paramsText}>${content}</div>`
+            .render({...{type: type}, ...params, ...{class: cls}})
+        return `<input ${paramsText}>`
     }
 })

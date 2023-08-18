@@ -5,3 +5,6 @@ export * as screenPhoto from "./screen-photo"
 export * as screenColor from "./screen-color"
 export * as paddingContainer from "./padding-container"
 export * as veryWhitePanel from "./very-white-panel"
+export * as btnInputs from "./btn-inputs"
+export * as checkInputs from './check-inputs'
+export * as formControlInputs from "./form-control-inputs"

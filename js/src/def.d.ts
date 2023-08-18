@@ -1,4 +1,24 @@
 export declare const renderer: {
+    "text-input": (params: Record<string, string | number>, content: string) => string;
+    "number-input": (params: Record<string, string | number>, content: string) => string;
+    "date-input": (params: Record<string, string | number>, content: string) => string;
+    "email-input": (params: Record<string, string | number>, content: string) => string;
+    "file-input": (params: Record<string, string | number>, content: string) => string;
+    "image-input": (params: Record<string, string | number>, content: string) => string;
+    "month-input": (params: Record<string, string | number>, content: string) => string;
+    "password-input": (params: Record<string, string | number>, content: string) => string;
+    "randge-input": (params: Record<string, string | number>, content: string) => string;
+    "search-input": (params: Record<string, string | number>, content: string) => string;
+    "tel-input": (params: Record<string, string | number>, content: string) => string;
+    "time-input": (params: Record<string, string | number>, content: string) => string;
+    "url-input": (params: Record<string, string | number>, content: string) => string;
+    "week-input": (params: Record<string, string | number>, content: string) => string;
+    "checkbox-input": (params: Record<string, string | number>, content: string) => string;
+    "hidden-input": (params: Record<string, string | number>, content: string) => string;
+    "radio-input": (params: Record<string, string | number>, content: string) => string;
+    "button-input": (params: Record<string, string | number>, content: string) => string;
+    "reset-input": (params: Record<string, string | number>, content: string) => string;
+    "submit-input": (params: Record<string, string | number>, content: string) => string;
     "padding-container": (params: Record<string, string | number>, content: string) => string;
     "screen-photo": (params: Record<string, string | number>, content: string) => string;
     "screen-color": (params: Record<string, string | number>, content: string) => string;

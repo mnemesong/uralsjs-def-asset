@@ -40,12 +40,12 @@ exports.literal = 'padding-container';
 exports.renderer = {
     'padding-container': function (params, content) {
         var cls = params.class
-            ? (params.class + ' padding-container')
+            ? ('padding-container ' + params.class)
             : 'padding-container';
         var paramsText = t.dsl
             .abstracts
             .record
-            .render(__assign(__assign({}, params), { class: cls }));
+            .render(__assign({ class: cls }, params));
         return "<div ".concat(paramsText, ">").concat(content, "</div>");
     }
 };

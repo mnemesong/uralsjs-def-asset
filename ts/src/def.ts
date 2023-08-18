@@ -10,4 +10,7 @@ export const renderer = {
     ...tags.screenColor.renderer,
     ...tags.screenPhoto.renderer,
     ...tags.paddingContainer.renderer,
+    ...tags.btnInputs.renderer,
+    ...tags.checkInputs.renderer,
+    ...tags.formControlInputs.renderer,
 }

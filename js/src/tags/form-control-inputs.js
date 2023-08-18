@@ -37,22 +37,32 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.renderer = exports.literals = void 0;
 var t = __importStar(require("uralsjs-templator"));
 exports.literals = [
-    'grid-gap-0',
-    'grid-gap-5',
-    'grid-gap-10',
-    'grid-gap-20',
-    'grid-gap-30'
+    'text-input',
+    'number-input',
+    'date-input',
+    'email-input',
+    'file-input',
+    'image-input',
+    'month-input',
+    'password-input',
+    'randge-input',
+    'search-input',
+    'tel-input',
+    'time-input',
+    'url-input',
+    'week-input',
 ];
 exports.renderer = {};
 exports.literals.forEach(function (l) {
     exports.renderer[l] = function (params, content) {
+        var type = l.split('-')[0];
         var cls = params.class
-            ? ('d-grid ' + l + ' ' + params.class)
-            : ('d-grid ' + l);
+            ? ('form-control ' + params.class)
+            : ('form-control');
         var paramsText = t.dsl
             .abstracts
             .record
-            .render(__assign(__assign({}, params), { class: cls }));
-        return "<div ".concat(paramsText, ">").concat(content, "</div>");
+            .render(__assign(__assign({ type: type }, params), { class: cls }));
+        return "<input ".concat(paramsText, ">");
     };
 });

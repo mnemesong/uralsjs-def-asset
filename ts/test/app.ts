@@ -7,7 +7,7 @@ const page = templator.tag.typecheck(
         [   'padding-container', 
             {'class': "position-relative"},
             [   'very-white-panel', {
-                    class: 'center-container mt-6 p-3',
+                    class: 'center-container mt-5 p-3',
                     style: 'width: 400px; height: min-content;'
                 },
                 [   'grid-gap-20',
@@ -15,7 +15,15 @@ const page = templator.tag.typecheck(
                     [   'h3',
                         {},
                         "Авторизация"
-                    ]
+                    ],
+                    [   'text-input'    ],
+                    [   'date-input'    ],
+                    [   'file-input'    ],
+                    [   'image-input'   ],
+                    [   'month-input'   ],
+                    [   'search-input'  ],
+                    [   'url-input'     ],
+                    [   'submit-input'  ],
                 ]
             ]
         ],

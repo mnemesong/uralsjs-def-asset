@@ -40,7 +40,7 @@ exports.literal = 'screen-color';
 exports.renderer = {
     'screen-color': function (params, content) {
         var cls = params.class
-            ? (params.class + ' screen dark-screen')
+            ? ('screen dark-screen ' + params.class)
             : 'screen dark-screen';
         var paramsText = t.dsl
             .abstracts

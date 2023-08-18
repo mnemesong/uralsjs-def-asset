@@ -4,9 +4,13 @@ export const tag = 'overlayer-gallery'
 
 export const renderer: t.dsl.abstracts.render.T<typeof tag> = {
     'overlayer-gallery': (params, content) => {
+        const cls = params.class
+            ? ('overlayer ' + params.class)
+            : params.class
+        const p2 = {...params, ...{class: cls}}
         return t.tag.render(
             [   'div', 
-                {class: 'overlayer'},
+                p2,
                 [   'div', {
                         onclick: "this.closest('.overlayer').remove()",
                         class: "overlayer-bg"
