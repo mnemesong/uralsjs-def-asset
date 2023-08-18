@@ -6,13 +6,16 @@ const page = templator.tag.typecheck(
         {},
         [   'padding-container', 
             {'class': "position-relative"},
-            [   'white-panel', {
+            [   'very-white-panel', {
                     class: 'center-container mt-6 p-3',
                     style: 'width: 400px; height: min-content;'
                 },
-                [   'h3',
+                [   'grid-gap-20',
                     {},
-                    "Авторизация"
+                    [   'h3',
+                        {},
+                        "Авторизация"
+                    ]
                 ]
             ]
         ],

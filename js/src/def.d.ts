@@ -2,6 +2,7 @@ export declare const renderer: {
     "padding-container": (params: Record<string, string | number>, content: string) => string;
     "screen-photo": (params: Record<string, string | number>, content: string) => string;
     "screen-color": (params: Record<string, string | number>, content: string) => string;
+    "very-white-panel": (params: Record<string, string | number>, content: string) => string;
     "white-panel": (params: Record<string, string | number>, content: string) => string;
     "overlayer-gallery": (params: Record<string, string | number>, content: string) => string;
     "grid-gap-0": (params: Record<string, string | number>, content: string) => string;

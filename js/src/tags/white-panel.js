@@ -1,4 +1,15 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     var desc = Object.getOwnPropertyDescriptor(m, k);
@@ -23,11 +34,18 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.veryWhitePanel = exports.paddingContainer = exports.screenColor = exports.screenPhoto = exports.whitePanel = exports.overlayerGallery = exports.gridGap = void 0;
-exports.gridGap = __importStar(require("./grid-gap"));
-exports.overlayerGallery = __importStar(require("./overlayer-gallery"));
-exports.whitePanel = __importStar(require("./white-panel"));
-exports.screenPhoto = __importStar(require("./screen-photo"));
-exports.screenColor = __importStar(require("./screen-color"));
-exports.paddingContainer = __importStar(require("./padding-container"));
-exports.veryWhitePanel = __importStar(require("./very-white-panel"));
+exports.renderer = exports.tag = void 0;
+var t = __importStar(require("uralsjs-templator"));
+exports.tag = 'white-panel';
+exports.renderer = {
+    'white-panel': function (params, content) {
+        var cls = params.class
+            ? (params.class + ' white-panel p-3')
+            : 'white-panel p-3';
+        var paramsText = t.dsl
+            .abstracts
+            .record
+            .render(__assign(__assign({}, params), { class: cls }));
+        return "<div ".concat(paramsText, ">").concat(content, "</div>");
+    }
+};
