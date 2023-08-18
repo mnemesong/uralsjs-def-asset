@@ -2,7 +2,7 @@ import * as t from "uralsjs-templator"
 
 export const tag = 'screen-photo'
 
-export const renderer: t.dsl.abstracts.render.T<typeof tag> = {
+export const renderer: t.config.T<typeof tag> = {
     'screen-photo': (params, content) => {
         const cls = params.class 
             ? (params.class + ' screen') 
@@ -14,7 +14,7 @@ export const renderer: t.dsl.abstracts.render.T<typeof tag> = {
             : ''
         const paramsCorrected = {...params}
         if(params['photo']) { delete paramsCorrected[photo]; }
-        return t.tag.render(
+        return t.render(
             [   'div',
             paramsCorrected,
                 [   'div',
@@ -30,7 +30,7 @@ export const renderer: t.dsl.abstracts.render.T<typeof tag> = {
                 ],
                 content
             ], 
-            t.def.renderer
+            t.html.config
         )
     }
 }

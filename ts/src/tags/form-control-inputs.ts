@@ -17,15 +17,15 @@ export const literals = [
     'week-input',
 ] as const
 
-export const renderer = {} as t.dsl.abstracts.render.T<typeof literals[number]>
+export const renderer = {} as t.config.T<typeof literals[number]>
 literals.forEach(l => {
     renderer[l] = (params, content) => {
         const type = l.split('-')[0]
         const cls = params.class 
             ? ('form-control ' + params.class) 
             : ('form-control')
-        const paramsText = t.dsl
-            .abstracts
+        const paramsText = t
+            .config
             .record
             .render({...{type: type}, ...params, ...{class: cls}})
         return `<input ${paramsText}>`

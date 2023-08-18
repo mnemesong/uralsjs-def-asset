@@ -9,3 +9,5 @@ export * as btnInputs from "./btn-inputs";
 export * as checkInputs from './check-inputs';
 export * as formControlInputs from "./form-control-inputs";
 export * as btns from "./btns";
+export * as navTopPanel from "./nav-top-panel";
+export * as navTopSpace from "./nav-top-space";

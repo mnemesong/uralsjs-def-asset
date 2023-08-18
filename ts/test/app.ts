@@ -1,7 +1,7 @@
 import * as templator from "uralsjs-templator"
 import * as index from "../src"
 
-const page1 = templator.tag.typecheck(
+const page1 = templator.typecheck(
     [   'screen-color', 
         {},
         [   'padding-container', 
@@ -37,7 +37,7 @@ const page1 = templator.tag.typecheck(
     index.def.renderer
 )
 
-const page2 = templator.tag.typecheck(
+const page2 = templator.typecheck(
     [
         'screen-photo',
         {photo: './1.jpg'},
@@ -76,8 +76,10 @@ const page2 = templator.tag.typecheck(
 )
 
 const render = () => {
-    document.body.innerHTML = templator.tag.render(page1, index.def.renderer)
-        + templator.tag.render(page2, index.def.renderer)
+    document.body.innerHTML = templator.render(['nav-top-panel'], index.def.renderer)
+        + templator.render(['nav-top-space'], index.def.renderer)
+        + templator.render(page1, index.def.renderer)
+        + templator.render(page2, index.def.renderer)
 }
 
 render()

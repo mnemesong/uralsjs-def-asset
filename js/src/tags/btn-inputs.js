@@ -52,8 +52,8 @@ exports.literals.forEach(function (l) {
                 ? ('btn ' + params.class)
                 : ('btn btn-primary ' + params.class)))
             : ('btn btn-primary');
-        var paramsText = t.dsl
-            .abstracts
+        var paramsText = t
+            .config
             .record
             .render(__assign(__assign({ type: type }, params), { class: cls }));
         return "<input ".concat(paramsText, ">");

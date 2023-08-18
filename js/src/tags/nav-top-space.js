@@ -34,18 +34,21 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.renderer = exports.tag = void 0;
+exports.renderer = exports.literal = void 0;
 var t = __importStar(require("uralsjs-templator"));
-exports.tag = 'white-panel';
+exports.literal = 'nav-top-space';
 exports.renderer = {
-    'white-panel': function (params, content) {
+    'nav-top-space': function (params, content) {
         var cls = params.class
-            ? (params.class + ' white-panel p-3')
-            : 'white-panel p-3';
-        var paramsText = t.dsl
-            .abstracts
-            .record
-            .render(__assign(__assign({}, params), { class: cls }));
-        return "<div ".concat(paramsText, ">").concat(content, "</div>");
+            ? "w-100 screen-dark " + params.class
+            : "w-100 screen-dark";
+        var stl = params.style
+            ? "height: 50px; " + params.style
+            : "height: 50px;";
+        return t.render([
+            'div',
+            __assign(__assign({}, params), { class: cls, style: stl }),
+            (content.length > 0) ? '&nbsp;' : content
+        ], t.html.config);
     }
 };

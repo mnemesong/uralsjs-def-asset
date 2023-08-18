@@ -2,13 +2,13 @@ import * as t from "uralsjs-templator"
 
 export const tag = 'overlayer-gallery'
 
-export const renderer: t.dsl.abstracts.render.T<typeof tag> = {
+export const renderer: t.config.T<typeof tag> = {
     'overlayer-gallery': (params, content) => {
         const cls = params.class
             ? ('overlayer ' + params.class)
             : params.class
         const p2 = {...params, ...{class: cls}}
-        return t.tag.render(
+        return t.render(
             [   'div', 
                 p2,
                 [   'div', {
@@ -35,7 +35,7 @@ export const renderer: t.dsl.abstracts.render.T<typeof tag> = {
                     content
                 ],
             ], 
-            t.def.renderer
+            t.html.config
         )
     }
 }

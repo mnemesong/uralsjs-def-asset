@@ -49,8 +49,8 @@ exports.literals.forEach(function (l) {
         var cls = params.class
             ? ('d-grid ' + l + ' ' + params.class)
             : ('d-grid ' + l);
-        var paramsText = t.dsl
-            .abstracts
+        var paramsText = t
+            .config
             .record
             .render(__assign(__assign({}, params), { class: cls }));
         return "<div ".concat(paramsText, ">").concat(content, "</div>");

@@ -42,8 +42,8 @@ exports.renderer = {
         var cls = params.class
             ? (params.class + ' white-panel p-3')
             : 'white-panel p-3';
-        var paramsText = t.dsl
-            .abstracts
+        var paramsText = t
+            .config
             .record
             .render(__assign(__assign({}, params), { class: cls }));
         return "<div ".concat(paramsText, ">").concat(content, "</div>");

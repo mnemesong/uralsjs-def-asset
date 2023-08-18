@@ -42,8 +42,8 @@ exports.renderer = {
         var cls = params.class
             ? ('screen dark-screen ' + params.class)
             : 'screen dark-screen';
-        var paramsText = t.dsl
-            .abstracts
+        var paramsText = t
+            .config
             .record
             .render(__assign(__assign({}, params), { class: cls }));
         return "<div ".concat(paramsText, ">").concat(content, "</div>");

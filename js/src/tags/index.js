@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.btns = exports.formControlInputs = exports.checkInputs = exports.btnInputs = exports.veryWhitePanel = exports.paddingContainer = exports.screenColor = exports.screenPhoto = exports.whitePanel = exports.overlayerGallery = exports.gridGap = void 0;
+exports.navTopSpace = exports.navTopPanel = exports.btns = exports.formControlInputs = exports.checkInputs = exports.btnInputs = exports.veryWhitePanel = exports.paddingContainer = exports.screenColor = exports.screenPhoto = exports.whitePanel = exports.overlayerGallery = exports.gridGap = void 0;
 exports.gridGap = __importStar(require("./grid-gap"));
 exports.overlayerGallery = __importStar(require("./overlayer-gallery"));
 exports.whitePanel = __importStar(require("./white-panel"));
@@ -35,3 +35,5 @@ exports.btnInputs = __importStar(require("./btn-inputs"));
 exports.checkInputs = __importStar(require("./check-inputs"));
 exports.formControlInputs = __importStar(require("./form-control-inputs"));
 exports.btns = __importStar(require("./btns"));
+exports.navTopPanel = __importStar(require("./nav-top-panel"));
+exports.navTopSpace = __importStar(require("./nav-top-space"));

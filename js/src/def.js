@@ -35,6 +35,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.renderer = void 0;
-var templator = __importStar(require("uralsjs-templator"));
+var t = __importStar(require("uralsjs-templator"));
 var tags = __importStar(require("./tags"));
-exports.renderer = __assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign({}, templator.def.renderer), tags.gridGap.renderer), tags.overlayerGallery.renderer), tags.whitePanel.renderer), tags.veryWhitePanel.renderer), tags.screenColor.renderer), tags.screenPhoto.renderer), tags.paddingContainer.renderer), tags.btnInputs.renderer), tags.checkInputs.renderer), tags.formControlInputs.renderer), tags.btns.renderer);
+exports.renderer = __assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign({}, t.html.config), tags.gridGap.renderer), tags.overlayerGallery.renderer), tags.whitePanel.renderer), tags.veryWhitePanel.renderer), tags.screenColor.renderer), tags.screenPhoto.renderer), tags.paddingContainer.renderer), tags.btnInputs.renderer), tags.checkInputs.renderer), tags.formControlInputs.renderer), tags.btns.renderer), tags.navTopPanel.renderer), tags.navTopSpace.renderer);

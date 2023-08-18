@@ -34,29 +34,23 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.renderer = exports.literals = void 0;
+exports.renderer = exports.literal = void 0;
 var t = __importStar(require("uralsjs-templator"));
-exports.literals = [
-    'btn-success',
-    'btn-danger',
-    'btn-warning',
-    'btn-info',
-    'btn-white',
-    'btn-dark',
-    'btn-primary',
-    'btn-secondary',
-];
-exports.renderer = {};
-exports.literals.forEach(function (l) {
-    exports.renderer[l] = function (params, content) {
-        var type = l.split('-')[1];
+exports.literal = 'nav-top-panel';
+exports.renderer = {
+    'nav-top-panel': function (params, content) {
         var cls = params.class
-            ? ('btn btn-' + type + ' ' + params.class)
-            : ('btn btn-' + type);
-        var paramsText = t
-            .config
-            .record
-            .render(__assign(__assign({ type: 'button' }, params), { class: cls }));
-        return "<button ".concat(paramsText, ">").concat(content, "</button>");
-    };
-});
+            ? "w-100 position-fixed dark-screen padding-width "
+                + params.class
+            : "w-100 position-fixed dark-screen padding-width";
+        var stl = params.style
+            ? "top: 0; height: 50px; "
+                + params.style
+            : "top: 0; height: 50px;";
+        return t.render([
+            'div',
+            __assign(__assign({}, params), { class: cls, style: stl }),
+            (content.length > 0) ? '&nbsp;' : content
+        ], t.html.config);
+    }
+};

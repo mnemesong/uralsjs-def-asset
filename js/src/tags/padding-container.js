@@ -42,8 +42,8 @@ exports.renderer = {
         var cls = params.class
             ? ('padding-container ' + params.class)
             : 'padding-container';
-        var paramsText = t.dsl
-            .abstracts
+        var paramsText = t
+            .config
             .record
             .render(__assign({ class: cls }, params));
         return "<div ".concat(paramsText, ">").concat(content, "</div>");

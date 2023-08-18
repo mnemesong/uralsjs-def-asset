@@ -21,6 +21,6 @@
   },
   "dependencies": {
     "superstruct": "^0.12.2",
-    "uralsjs-templator": "*"
+    "uralsjs-templator": ">=0.1.0"
   }
 }

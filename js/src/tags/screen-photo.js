@@ -51,7 +51,7 @@ exports.renderer = {
         if (params['photo']) {
             delete paramsCorrected[photo];
         }
-        return t.tag.render(['div',
+        return t.render(['div',
             paramsCorrected,
             ['div',
                 { style: "position: absolute; height:100%; width:100%;" },
@@ -64,6 +64,6 @@ exports.renderer = {
                     }
                 ]
             ],
-            content], t.def.renderer);
+            content], t.html.config);
     }
 };

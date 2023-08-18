@@ -48,8 +48,8 @@ exports.literals.forEach(function (l) {
         var stl = params.style
             ? ('width: 22px; height:22px; ' + params.style)
             : ('width: 22px; height:22px;');
-        var paramsText = t.dsl
-            .abstracts
+        var paramsText = t
+            .config
             .record
             .render(__assign(__assign({ type: type }, params), { style: stl }));
         return "<input ".concat(paramsText, ">");

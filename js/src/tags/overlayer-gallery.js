@@ -43,7 +43,7 @@ exports.renderer = {
             ? ('overlayer ' + params.class)
             : params.class;
         var p2 = __assign(__assign({}, params), { class: cls });
-        return t.tag.render(['div',
+        return t.render(['div',
             p2,
             ['div', {
                     onclick: "this.closest('.overlayer').remove()",
@@ -68,6 +68,6 @@ exports.renderer = {
                 ],
                 content
             ],
-        ], t.def.renderer);
+        ], t.html.config);
     }
 };

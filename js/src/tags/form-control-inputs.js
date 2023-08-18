@@ -59,8 +59,8 @@ exports.literals.forEach(function (l) {
         var cls = params.class
             ? ('form-control ' + params.class)
             : ('form-control');
-        var paramsText = t.dsl
-            .abstracts
+        var paramsText = t
+            .config
             .record
             .render(__assign(__assign({ type: type }, params), { class: cls }));
         return "<input ".concat(paramsText, ">");

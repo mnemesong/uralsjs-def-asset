@@ -11,7 +11,7 @@ export const literals = [
     'btn-secondary',
 ] as const
 
-export const renderer = {} as t.dsl.abstracts.render.T<typeof literals[number]>
+export const renderer = {} as t.config.T<typeof literals[number]>
 literals.forEach(l => {
     renderer[l] = (params, content) => {
         const type = l.split('-')[1]
@@ -19,8 +19,8 @@ literals.forEach(l => {
         const cls = params.class 
             ? ('btn btn-' + type + ' ' + params.class)
             : ('btn btn-' + type)
-        const paramsText = t.dsl
-            .abstracts
+        const paramsText = t
+            .config
             .record
             .render({...{type: 'button'}, ...params, ...{class: cls}})
         return `<button ${paramsText}>${content}</button>`

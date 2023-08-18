@@ -1,8 +1,8 @@
-import * as templator from "uralsjs-templator"
+import * as t from "uralsjs-templator"
 import * as tags from "./tags"
 
 export const renderer = {
-    ...templator.def.renderer,
+    ...t.html.config,
     ...tags.gridGap.renderer,
     ...tags.overlayerGallery.renderer,
     ...tags.whitePanel.renderer,
@@ -14,4 +14,6 @@ export const renderer = {
     ...tags.checkInputs.renderer,
     ...tags.formControlInputs.renderer,
     ...tags.btns.renderer,
+    ...tags.navTopPanel.renderer,
+    ...tags.navTopSpace.renderer,
 }
