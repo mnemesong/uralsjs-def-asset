@@ -168,6 +168,13 @@
     max-height: min(calc(100vh - 120px), 70vw);
 }
 
+.center-container {
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
 .white-panel {
     background-color: #ffffffaa;
     box-shadow: 5px 5px 7px #0007;

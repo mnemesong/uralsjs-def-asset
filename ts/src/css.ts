@@ -1,19 +1,19 @@
 import * as p from "path"
 
-export const bootstrap = p
+export const getBootstrap = () => p
     .resolve(module.path, "..", "..", "resources", "bootstrap.min.css")
 
-export const fonts = p
+export const getFonts = () => p
     .resolve(module.path, "..", "..", "resources", "fonts.css")
 
-export const main = p
+export const getMain = () => p
     .resolve(module.path, "..", "..", "resources", "main.css")
 
-export const nav = p
+export const getNav = () => p
     .resolve(module.path, "..", "..", "resources", "nav.css")
 
-export const table = p
+export const getTable = () => p
     .resolve(module.path, "..", "..", "resources", "table.css")
 
-export const path = p
+export const getPath = () => p
     .resolve(module.path, "..", "..", "resources")

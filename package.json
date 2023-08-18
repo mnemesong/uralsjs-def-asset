@@ -6,7 +6,7 @@
   "scripts": {
     "build:compile": "tsc",
     "build:test": "tsc && mocha ./js/test/**/*.js",
-    "build:browserify": "tsc && browserify ./js/test/app.js > resources/bundle.js"
+    "build:browserify": "tsc && browserify ./js/test/app.js > test-res/bundle.js"
   },
   "keywords": [],
   "author": "Anatoly Starodubtsev <tostar74@mail.ru>",

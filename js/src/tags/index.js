@@ -23,9 +23,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.screenColor = exports.screenPhoto = exports.whiteForm = exports.overlayerGallery = exports.gridGap = void 0;
+exports.paddingContainer = exports.screenColor = exports.screenPhoto = exports.whiteForm = exports.overlayerGallery = exports.gridGap = void 0;
 exports.gridGap = __importStar(require("./grid-gap"));
 exports.overlayerGallery = __importStar(require("./overlayer-gallery"));
 exports.whiteForm = __importStar(require("./white-form"));
 exports.screenPhoto = __importStar(require("./screen-photo"));
 exports.screenColor = __importStar(require("./screen-color"));
+exports.paddingContainer = __importStar(require("./padding-container"));

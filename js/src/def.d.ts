@@ -1,4 +1,5 @@
 export declare const renderer: {
+    "padding-container": (params: Record<string, string | number>, content: string) => string;
     "screen-photo": (params: Record<string, string | number>, content: string) => string;
     "screen-color": (params: Record<string, string | number>, content: string) => string;
     "white-panel": (params: Record<string, string | number>, content: string) => string;

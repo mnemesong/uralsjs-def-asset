@@ -8,4 +8,5 @@ export const renderer = {
     ...tags.whiteForm.renderer,
     ...tags.screenColor.renderer,
     ...tags.screenPhoto.renderer,
+    ...tags.paddingContainer.renderer,
 }

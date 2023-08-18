@@ -23,7 +23,23 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.css = exports.def = exports.tags = void 0;
-exports.tags = __importStar(require("./tags"));
-exports.def = __importStar(require("./def"));
-exports.css = __importStar(require("./css"));
+exports.getPath = exports.getTable = exports.getNav = exports.getMain = exports.getFonts = exports.getBootstrap = void 0;
+var p = __importStar(require("path"));
+var getBootstrap = function () { return p
+    .resolve(module.path, "..", "..", "resources", "bootstrap.min.css"); };
+exports.getBootstrap = getBootstrap;
+var getFonts = function () { return p
+    .resolve(module.path, "..", "..", "resources", "fonts.css"); };
+exports.getFonts = getFonts;
+var getMain = function () { return p
+    .resolve(module.path, "..", "..", "resources", "main.css"); };
+exports.getMain = getMain;
+var getNav = function () { return p
+    .resolve(module.path, "..", "..", "resources", "nav.css"); };
+exports.getNav = getNav;
+var getTable = function () { return p
+    .resolve(module.path, "..", "..", "resources", "table.css"); };
+exports.getTable = getTable;
+var getPath = function () { return p
+    .resolve(module.path, "..", "..", "resources"); };
+exports.getPath = getPath;
