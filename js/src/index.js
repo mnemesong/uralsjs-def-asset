@@ -23,6 +23,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.css = exports.tags = void 0;
+exports.htmlTemplate = exports.def = exports.css = exports.tags = void 0;
 exports.tags = __importStar(require("./tags"));
 exports.css = __importStar(require("./css"));
+exports.def = __importStar(require("./def"));
+exports.htmlTemplate = __importStar(require("./html-template"));
