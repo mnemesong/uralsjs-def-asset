@@ -191,13 +191,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.htmlTemplate = exports.def = exports.css = exports.tags = void 0;
+exports.dsl = exports.htmlTemplate = exports.def = exports.css = exports.tags = void 0;
 exports.tags = __importStar(require("./tags"));
 exports.css = __importStar(require("./css"));
 exports.def = __importStar(require("./def"));
 exports.htmlTemplate = __importStar(require("./html-template"));
+exports.dsl = __importStar(require("uralsjs-templator"));
 
-},{"./css":1,"./def":2,"./html-template":3,"./tags":10}],5:[function(require,module,exports){
+},{"./css":1,"./def":2,"./html-template":3,"./tags":10,"uralsjs-templator":28}],5:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
