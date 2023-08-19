@@ -11,6 +11,7 @@ export * as formControlInputs from "./form-control-inputs"
 export * as btns from "./btns"
 export * as navTopPanel from "./nav-top-panel"
 export * as navTopSpace from "./nav-top-space"
+export * as navTopItem from "./nav-top-item"
 
 import * as t from "uralsjs-templator"
 
@@ -27,6 +28,7 @@ import * as formControlInputs from "./form-control-inputs"
 import * as btns from "./btns"
 import * as navTopPanel from "./nav-top-panel"
 import * as navTopSpace from "./nav-top-space"
+import * as navTopItem from "./nav-top-item"
 
 export const renderer = {
     ...t.html.config,
@@ -43,4 +45,5 @@ export const renderer = {
     ...btns.renderer,
     ...navTopPanel.renderer,
     ...navTopSpace.renderer,
+    ...navTopItem.renderer,
 }

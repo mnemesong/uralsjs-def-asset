@@ -36,21 +36,23 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.renderer = exports.literal = void 0;
 var t = __importStar(require("uralsjs-templator"));
-exports.literal = 'nav-top-panel';
+exports.literal = 'nav-top-item';
 exports.renderer = {
-    'nav-top-panel': function (params, content) {
+    'nav-top-item': function (params, content) {
         var cls = params.class
-            ? "w-100 position-fixed dark-screen padding-width "
-                + params.class
-            : "w-100 position-fixed dark-screen padding-width";
-        var stl = params.style
-            ? "top: 0; height: 50px; z-index: 999; "
-                + params.style
-            : "top: 0; height: 50px; z-index: 999;";
+            ? "d-table h-100 " + params.class
+            : "d-table h-100";
         return t.render([
             'div',
-            __assign(__assign({}, params), { class: cls, style: stl }),
-            (content.length > 0) ? content : '&nbsp;'
+            __assign(__assign({}, params), { class: cls }),
+            [
+                'div',
+                {
+                    class: "d-table-cell pe-2 ps-2 h-100",
+                    style: "vertical-align: middle;"
+                },
+                content
+            ]
         ], t.html.config);
     }
 };

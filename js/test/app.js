@@ -25,7 +25,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var templator = __importStar(require("uralsjs-templator"));
 var index = __importStar(require("../src"));
-var page1 = templator.typecheck(['screen-color',
+var page1 = templator.render(['screen-color',
     {},
     ['padding-container',
         { 'class': "position-relative" },
@@ -57,7 +57,7 @@ var page1 = templator.typecheck(['screen-color',
         ]
     ],
 ], index.tags.renderer);
-var page2 = templator.typecheck([
+var page2 = templator.render([
     'screen-photo',
     { photo: './1.jpg' },
     [
@@ -91,10 +91,17 @@ var page2 = templator.typecheck([
         ]
     ]
 ], index.tags.renderer);
+var menu = templator.render([
+    'nav-top-panel',
+    {},
+    [
+        'nav-top-item',
+        { class: "font-large" },
+        'Brand'
+    ]
+], index.tags.renderer)
+    + templator.render(['nav-top-space'], index.tags.renderer);
 var render = function () {
-    document.body.innerHTML = templator.render(['nav-top-panel'], index.tags.renderer)
-        + templator.render(['nav-top-space'], index.tags.renderer)
-        + templator.render(page1, index.tags.renderer)
-        + templator.render(page2, index.tags.renderer);
+    document.body.innerHTML = menu + page1 + page2;
 };
 render();
