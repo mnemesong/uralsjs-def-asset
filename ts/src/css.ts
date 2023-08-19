@@ -15,5 +15,17 @@ export const getNav = () => p
 export const getTable = () => p
     .resolve(module.path, "..", "..", "resources", "table.css")
 
+export const getColors = () => p
+    .resolve(module.path, "..", "..", "resources", "colors.css")
+
+export const getAll = () => [
+    getBootstrap(),
+    getFonts(),
+    getMain(),
+    getNav(),
+    getTable(),
+    getColors(),
+]
+
 export const getPath = () => p
     .resolve(module.path, "..", "..", "resources")

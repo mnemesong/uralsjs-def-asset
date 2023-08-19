@@ -24,7 +24,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getPath = exports.getTable = exports.getNav = exports.getMain = exports.getFonts = exports.getBootstrap = void 0;
+exports.getPath = exports.getAll = exports.getColors = exports.getTable = exports.getNav = exports.getMain = exports.getFonts = exports.getBootstrap = void 0;
 var p = __importStar(require("path"));
 var getBootstrap = function () { return p
     .resolve(module.path, "..", "..", "resources", "bootstrap.min.css"); };
@@ -41,6 +41,18 @@ exports.getNav = getNav;
 var getTable = function () { return p
     .resolve(module.path, "..", "..", "resources", "table.css"); };
 exports.getTable = getTable;
+var getColors = function () { return p
+    .resolve(module.path, "..", "..", "resources", "colors.css"); };
+exports.getColors = getColors;
+var getAll = function () { return [
+    (0, exports.getBootstrap)(),
+    (0, exports.getFonts)(),
+    (0, exports.getMain)(),
+    (0, exports.getNav)(),
+    (0, exports.getTable)(),
+    (0, exports.getColors)(),
+]; };
+exports.getAll = getAll;
 var getPath = function () { return p
     .resolve(module.path, "..", "..", "resources"); };
 exports.getPath = getPath;
@@ -1092,7 +1104,11 @@ var menu = templator.render([
     [
         'nav-top-item',
         { class: "font-large" },
-        'Brand'
+        [
+            'a',
+            { href: "/url", class: "color-light" },
+            'Brand'
+        ]
     ]
 ], index.tags.renderer)
     + templator.render(['nav-top-space'], index.tags.renderer);

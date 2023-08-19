@@ -81,7 +81,11 @@ const menu = templator.render([
         [
             'nav-top-item',
             {class: "font-large"},
-            'Brand'
+            [   
+                'a',
+                {href: "/url", class: "color-light"},
+                'Brand'
+            ]
         ]
     ], index.tags.renderer)
     + templator.render(['nav-top-space'], index.tags.renderer)

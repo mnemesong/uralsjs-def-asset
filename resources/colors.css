@@ -1,0 +1,79 @@
+.color-dark {
+    color: rgba(0,16,17,1);
+}
+.color-hov-dark {
+    transition: 0.2s ease;
+}
+.color-hov-dark:hover {
+    color: rgba(0,16,17,1);
+}
+
+.color-border-dark {
+    border-color: rgba(0,16,17,1);
+}
+.color-hov-border-dark {
+    transition: 0.2s ease;
+}
+.color-hov-border-dark:hover {
+    border-color: rgba(0,16,17,1);
+}
+
+.color-light {
+    color: #fff;
+}
+.color-hov-light {
+    transition: 0.2s ease;
+}
+.color-light:hover {
+    color: #fff;
+}
+
+.color-red {
+    color: #b00;
+}
+.color-hov-red {
+    transition: 0.2s ease;
+}
+.color-hov-red:hover {
+    color: #b00;
+}
+
+.bg-color-dark {
+    background-color: rgba(0,16,17,1);
+}
+.bg-color-hov-dark {
+    transition: 0.2s ease;
+}
+.bg-color-hov-dark:hover {
+    background-color: rgba(0,16,17,1);
+}
+
+.bg-color-light {
+    background-color: #fff;
+}
+.bg-color-hov-light {
+    transition: 0.2s ease;
+}
+.bg-color-hov-light:hover {
+    background-color: #fff;
+}
+
+.bg-color-red {
+    background-color: #b00;
+}
+.bg-color-hov-red {
+    transition: 0.2s ease;
+}
+.bg-color-hov-red:hover {
+    background-color: #b00;
+}
+
+.bg-color-transparent {
+    background-color: transparent;
+}
+.bg-color-hov-transparent {
+    transition: 0.2s ease;
+}
+.bg-color-hov-transparent:hover {
+    background-color: transparent;
+}
