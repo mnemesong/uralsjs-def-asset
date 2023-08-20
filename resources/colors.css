@@ -7,7 +7,6 @@
 .color-hov-dark:hover {
     color: rgba(0,16,17,1);
 }
-
 .color-border-dark {
     border-color: rgba(0,16,17,1);
 }
@@ -16,6 +15,15 @@
 }
 .color-hov-border-dark:hover {
     border-color: rgba(0,16,17,1);
+}
+.bg-color-dark {
+    background-color: rgba(0,16,17,1);
+}
+.bg-color-hov-dark {
+    transition: 0.2s ease;
+}
+.bg-color-hov-dark:hover {
+    background-color: rgba(0,16,17,1);
 }
 
 .color-light {
@@ -27,27 +35,15 @@
 .color-light:hover {
     color: #fff;
 }
-
-.color-red {
-    color: #b00;
+.color-border-light {
+    border-color: #fff;
 }
-.color-hov-red {
+.color-hov-border-light {
     transition: 0.2s ease;
 }
-.color-hov-red:hover {
-    color: #b00;
+.color-hov-border-light:hover {
+    border-color: #fff;
 }
-
-.bg-color-dark {
-    background-color: rgba(0,16,17,1);
-}
-.bg-color-hov-dark {
-    transition: 0.2s ease;
-}
-.bg-color-hov-dark:hover {
-    background-color: rgba(0,16,17,1);
-}
-
 .bg-color-light {
     background-color: #fff;
 }
@@ -58,6 +54,24 @@
     background-color: #fff;
 }
 
+.color-red {
+    color: #b00;
+}
+.color-hov-red {
+    transition: 0.2s ease;
+}
+.color-hov-red:hover {
+    color: #b00;
+}
+.color-border-redt {
+    border-color: #b00;
+}
+.color-hov-border-red {
+    transition: 0.2s ease;
+}
+.color-hov-border-red:hover {
+    border-color: #b00;
+}
 .bg-color-red {
     background-color: #b00;
 }

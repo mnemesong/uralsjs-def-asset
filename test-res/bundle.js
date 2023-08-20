@@ -74,7 +74,7 @@ var page2 = templator.render([
                 ['br'],
                 [
                     'btn-info',
-                    { onclick: "createAlert('Alert!')" },
+                    { onclick: /*javascript*/ "createAlert('Alert!')" },
                     "Success"
                 ]
             ],
@@ -111,7 +111,7 @@ var render = function () {
 };
 render();
 
-},{"../src":5,"uralsjs-templator":29}],2:[function(require,module,exports){
+},{"../src":5,"uralsjs-templator":31}],2:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -170,7 +170,7 @@ var getPath = function () { return p
     .resolve(module.path, "..", "..", "resources"); };
 exports.getPath = getPath;
 
-},{"path":22}],3:[function(require,module,exports){
+},{"path":23}],3:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -207,12 +207,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.renderer = void 0;
+exports.config = void 0;
 var t = __importStar(require("uralsjs-templator"));
 var tags = __importStar(require("./tags"));
-exports.renderer = __assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign({}, t.html.config), tags.gridGap.renderer), tags.overlayerGallery.renderer), tags.whitePanel.renderer), tags.veryWhitePanel.renderer), tags.screenColor.renderer), tags.screenPhoto.renderer), tags.paddingContainer.renderer), tags.btnInputs.renderer), tags.checkInputs.renderer), tags.formControlInputs.renderer), tags.btns.renderer), tags.navTopPanel.renderer), tags.navTopSpace.renderer);
+exports.config = __assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign({}, t.html.config), tags.gridGap.renderer), tags.overlayerGallery.renderer), tags.whitePanel.renderer), tags.veryWhitePanel.renderer), tags.screenColor.renderer), tags.screenPhoto.renderer), tags.paddingContainer.renderer), tags.btnInputs.renderer), tags.checkInputs.renderer), tags.formControlInputs.renderer), tags.btns.renderer), tags.navTopPanel.renderer), tags.navTopSpace.renderer);
 
-},{"./tags":11,"uralsjs-templator":29}],4:[function(require,module,exports){
+},{"./tags":13,"uralsjs-templator":31}],4:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -278,7 +278,7 @@ var renderHtml = function (t, content) {
 };
 exports.renderHtml = renderHtml;
 
-},{"../src":5,"uralsjs-templator":29}],5:[function(require,module,exports){
+},{"../src":5,"uralsjs-templator":31}],5:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -304,19 +304,218 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getScript = exports.dsl = exports.htmlTemplate = exports.def = exports.css = exports.tags = void 0;
-var fs = __importStar(require("fs"));
-var path = __importStar(require("path"));
+exports.script = exports.dsl = exports.htmlTemplate = exports.def = exports.css = exports.tags = void 0;
 exports.tags = __importStar(require("./tags"));
 exports.css = __importStar(require("./css"));
 exports.def = __importStar(require("./def"));
 exports.htmlTemplate = __importStar(require("./html-template"));
 exports.dsl = __importStar(require("uralsjs-templator"));
-var getScript = function () { return fs
-    .readFileSync(path.resolve(module.path, "script.js")); };
-exports.getScript = getScript;
+exports.script = __importStar(require("./script"));
 
-},{"./css":2,"./def":3,"./html-template":4,"./tags":11,"fs":21,"path":22,"uralsjs-templator":29}],6:[function(require,module,exports){
+},{"./css":2,"./def":3,"./html-template":4,"./script":6,"./tags":13,"uralsjs-templator":31}],6:[function(require,module,exports){
+function addOverLayer(id) {
+    if (id === void 0) { id = null; }
+    var overLayer = document.createElement("div");
+    if (id)
+        overLayer.id = id;
+    overLayer.innerHTML = '<div onclick="this.closest(\'.overlayer\').remove()"'
+        + ' class="overlayer-bg">'
+        + '<a href="#" style="color:#999" onmouseover="this.style.color=\'#ccc\'" '
+        + 'onmouseleave="this.style.color=\'#999\'">'
+        + '</a></div>';
+    overLayer.classList.add('overlayer');
+    document.body.after(overLayer);
+    return overLayer;
+}
+function makeForm(html, id, header) {
+    if (id === void 0) { id = ''; }
+    if (header === void 0) { header = ''; }
+    var newOverLayer = addOverLayer(id);
+    newOverLayer.innerHTML = newOverLayer.innerHTML + '<div class="very-white-panel '
+        + 'content-container height-min p-4 absolute-centralized">'
+        + '<div class="popup-content">'
+        + '<h3 class="popup-header p-0 m-0">' + header + '</h3>'
+        + '<ion-icon name="close-outline" class="w-100 h-100 color-hov-red clickable" '
+        + 'style="z-index: 1200;" '
+        + 'onclick="this.closest(\'.overlayer\').remove()"></ion-icon>'
+        + '<div class="popup-html">' + html + '</div>'
+        + '</div></div>';
+    var lastChild = newOverLayer.lastElementChild;
+    if (!(lastChild instanceof HTMLElement)) {
+        throw new Error("Last child is not HTMLElement");
+    }
+    if (lastChild.offsetHeight > newOverLayer.offsetHeight) {
+        lastChild.style.marginTop = '50px';
+        lastChild.style.marginBottom = '50px';
+    }
+    Array.from(newOverLayer.getElementsByTagName('script')).forEach(function (scriptBlock) {
+        eval(scriptBlock.innerHTML);
+    });
+}
+function makePopupGallery(contentHtmlsArray, id, index) {
+    if (id === void 0) { id = ''; }
+    if (index === void 0) { index = 0; }
+    contentHtmlsArray = Array.isArray(contentHtmlsArray) ? contentHtmlsArray : [contentHtmlsArray];
+    var newOverLayer = addOverLayer(id);
+    var contentsHtml = contentHtmlsArray.map(function (el, i) {
+        return '<div class="content-container gallery-content-container '
+            + 'absolute-centralized" style="display: none" data-id="' + i + '">'
+            + el + '</div>';
+    });
+    var galleryHtml = '<div class="gallery-container" data-show="'
+        + index.toString() + '"><div class="w-100 h-100" '
+        + 'onclick="this.closest(\'.overlayer\').remove()">&nbsp;</div>'
+        + ((contentHtmlsArray.length > 1)
+            ? ('<div class="gallery-elem gallery-left" onclick="switchGalleryContentLeft(this)">'
+                + '<ion-icon name="chevron-back-outline"></ion-icon></div>'
+                + '<div class="gallery-elem gallery-right" onclick="switchGalleryContentRight(this)">'
+                + '<ion-icon name="chevron-forward-outline"></ion-icon></div>')
+            : '')
+        + '<div class="gallery-elem gallery-close" onclick="this.closest(\'.overlayer\').remove()">'
+        + '<ion-icon name="close-outline"></ion-icon></div>'
+        + contentsHtml.join('')
+        + '</div>';
+    newOverLayer.innerHTML = newOverLayer.innerHTML + galleryHtml;
+    switchGalleryContent(newOverLayer.querySelector('.gallery-container'));
+    Array.from(newOverLayer.getElementsByTagName('script')).forEach(function (scriptBlock) {
+        eval(scriptBlock.innerHTML);
+    });
+}
+function switchGalleryContentRight(handler) {
+    var galleryContainer = handler.closest('.gallery-container');
+    var targetShowId = parseInt(galleryContainer.getAttribute('data-show')) + 1;
+    var galleryContents = Array.from(galleryContainer.getElementsByClassName('content-container'));
+    var maxGalleryId = galleryContents
+        .map(function (el) { return parseInt(el.getAttribute('data-id')); })
+        .reduce(function (prev, cur) { return Math.max(prev, cur); });
+    if (targetShowId > maxGalleryId) {
+        targetShowId = 0;
+    }
+    galleryContainer.setAttribute('data-show', targetShowId.toString());
+    if (!(galleryContainer instanceof HTMLElement)) {
+        throw new Error("gelleryContainer is not HTMLElement");
+    }
+    switchGalleryContent(galleryContainer);
+}
+function switchGalleryContentLeft(handler) {
+    var galleryContainer = handler.closest('.gallery-container');
+    var targetShowId = parseInt(galleryContainer.getAttribute('data-show')) - 1;
+    var galleryContents = Array.from(galleryContainer.getElementsByClassName('content-container'));
+    var maxGalleryId = galleryContents
+        .map(function (el) { return parseInt(el.getAttribute('data-id')); })
+        .reduce(function (prev, cur) { return Math.max(prev, cur); });
+    if (targetShowId < 0) {
+        targetShowId = maxGalleryId;
+    }
+    galleryContainer.setAttribute('data-show', targetShowId.toString());
+    if (!(galleryContainer instanceof HTMLElement)) {
+        throw new Error("gelleryContainer is not HTMLElement");
+    }
+    switchGalleryContent(galleryContainer);
+}
+function switchGalleryContent(galleryContainer) {
+    var shownId = galleryContainer.getAttribute('data-show');
+    var galleryContents = Array
+        .from(galleryContainer.getElementsByClassName('content-container'))
+        .map(function (el) {
+        if (!(el instanceof HTMLElement))
+            throw new Error("galleryElement is not HTMLElement");
+        return el;
+    });
+    galleryContents.forEach(function (el) {
+        return el.style.display = (el.getAttribute('data-id') === shownId ? 'block' : 'none');
+    });
+}
+function ssrOverLayerForm(url, data, alerter, id) {
+    if (data === void 0) { data = {}; }
+    if (alerter === void 0) { alerter = null; }
+    if (id === void 0) { id = ''; }
+    var formData = new FormData();
+    Object.keys(data).forEach(function (k) { return formData.append(k, data[k]); });
+    sendDataAjax(axiosBrowser(), formData, { action: url, method: 'get' }, {
+        html: function (res) { return makeForm(res.html, id, res.header ? res.header : ''); },
+        error: function (res) {
+            console.log("Building overlayer form error:", res.error);
+            if (alerter)
+                alerter.createAlert(res.error, 'danger');
+        }
+    });
+}
+function ssrPopupGallery(url, data, alerter, id) {
+    if (data === void 0) { data = {}; }
+    if (alerter === void 0) { alerter = null; }
+    if (id === void 0) { id = ''; }
+    var formData = new FormData();
+    Object.keys(data).forEach(function (k) { return formData.append(k, data[k]); });
+    sendDataAjax(axiosBrowser(), formData, { action: url, method: 'get' }, {
+        html: function (res) { return makePopupGallery(res.html, id, res.index ? parseInt(res.index) : 0); },
+        htmls: function (res) { return makePopupGallery(res.htmls, id, res.index ? parseInt(res.index) : 0); },
+        error: function (res) {
+            console.log("Building overlayer form error:", res.error);
+            if (alerter)
+                alerter.createAlert(res.error, 'danger');
+        }
+    });
+}
+function createAlert(text, style) {
+    if (style === void 0) { style = 'danger'; }
+    console.log("Alert " + style, text);
+    var alertContainer = document.getElementById("alertContainer");
+    if (!alertContainer) {
+        var body = document.querySelector('body');
+        var divEl = document.createElement('div');
+        body.append(divEl);
+        divEl.outerHTML = "<div class='alert-container' id='alertContainer'></div>";
+    }
+    setTimeout(function () {
+        alertContainer = document.getElementById("alertContainer");
+        var alertBlock = document.createElement('div');
+        alertContainer.append(alertBlock);
+        var id = Math.round(Math.random() * 1000);
+        alertBlock.outerHTML = "<div class='alert-block alert-block-"
+            + style + "' id='alertCont_" + id.toString()
+            + "' style='opacity: 0;'>" + text + "</div>";
+        setTimeout(function () {
+            alertBlock = document
+                .getElementById("alertCont_" + id.toString());
+            alertBlock.style.opacity = '1';
+        }, 50);
+        setTimeout(function () {
+            alertBlock = document
+                .getElementById("alertCont_" + id.toString());
+            alertBlock.style.opacity = '0';
+        }, 4400);
+        setTimeout(function () {
+            alertBlock = document
+                .getElementById("alertCont_" + id.toString());
+            alertBlock.style.height = '0';
+        }, 4800);
+        setTimeout(function () {
+            var alertBlock = document
+                .getElementById("alertCont_" + id.toString());
+            alertBlock.remove();
+        }, 5000);
+    }, 50);
+}
+function errorReaction(response) {
+    if (response.error) {
+        createAlert(response.error);
+    }
+    if (response.details) {
+        console.log(response.details);
+    }
+}
+function onPressEnter(event, handler, fn) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        fn(handler);
+    }
+}
+function clickSubmitBtnInForm(handler) {
+    handler.closest('form').querySelector('.submit-button').click();
+}
+
+},{}],7:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -379,7 +578,7 @@ exports.literals.forEach(function (l) {
     };
 });
 
-},{"uralsjs-templator":29}],7:[function(require,module,exports){
+},{"uralsjs-templator":31}],8:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -443,7 +642,7 @@ exports.literals.forEach(function (l) {
     };
 });
 
-},{"uralsjs-templator":29}],8:[function(require,module,exports){
+},{"uralsjs-templator":31}],9:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -502,7 +701,7 @@ exports.literals.forEach(function (l) {
     };
 });
 
-},{"uralsjs-templator":29}],9:[function(require,module,exports){
+},{"uralsjs-templator":31}],10:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -572,7 +771,7 @@ exports.literals.forEach(function (l) {
     };
 });
 
-},{"uralsjs-templator":29}],10:[function(require,module,exports){
+},{"uralsjs-templator":31}],11:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -632,7 +831,54 @@ exports.literals.forEach(function (l) {
     };
 });
 
-},{"uralsjs-templator":29}],11:[function(require,module,exports){
+},{"uralsjs-templator":31}],12:[function(require,module,exports){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.whitePanel = exports.veryWhitePanel = exports.screenPhoto = exports.screenColor = exports.paddingContainer = exports.overlayerGallery = exports.navTopSpace = exports.navTopPanel = exports.navTopItem = exports.gridGap30 = exports.gridGap20 = exports.gridGap10 = exports.gridGap5 = exports.gridGap0 = exports.weekInput = exports.urlInput = exports.timeInput = exports.telInput = exports.searchInput = exports.randgeInput = exports.passwordInput = exports.monthInput = exports.imageInput = exports.fileInput = exports.emailInput = exports.dateInput = exports.numberInput = exports.textInput = exports.radioInput = exports.hiddenInput = exports.checkboxInput = exports.btnSecondary = exports.btnPrimary = exports.btnDark = exports.btnWhite = exports.btnInfo = exports.btnWarning = exports.btnDanger = exports.btnSuccess = exports.submitInput = exports.resetInput = exports.buttonInput = void 0;
+exports.buttonInput = 'button-input';
+exports.resetInput = 'reset-input';
+exports.submitInput = 'submit-input';
+exports.btnSuccess = 'btn-success';
+exports.btnDanger = 'btn-danger';
+exports.btnWarning = 'btn-warning';
+exports.btnInfo = 'btn-info';
+exports.btnWhite = 'btn-white';
+exports.btnDark = 'btn-dark';
+exports.btnPrimary = 'btn-primary';
+exports.btnSecondary = 'btn-secondary';
+exports.checkboxInput = 'checkbox-input';
+exports.hiddenInput = 'hidden-input';
+exports.radioInput = 'radio-input';
+exports.textInput = 'text-input';
+exports.numberInput = 'number-input';
+exports.dateInput = 'date-input';
+exports.emailInput = 'email-input';
+exports.fileInput = 'file-input';
+exports.imageInput = 'image-input';
+exports.monthInput = 'month-input';
+exports.passwordInput = 'password-input';
+exports.randgeInput = 'randge-input';
+exports.searchInput = 'search-input';
+exports.telInput = 'tel-input';
+exports.timeInput = 'time-input';
+exports.urlInput = 'url-input';
+exports.weekInput = 'week-input';
+exports.gridGap0 = 'grid-gap-0';
+exports.gridGap5 = 'grid-gap-5';
+exports.gridGap10 = 'grid-gap-10';
+exports.gridGap20 = 'grid-gap-20';
+exports.gridGap30 = 'grid-gap-30';
+exports.navTopItem = 'nav-top-item';
+exports.navTopPanel = 'nav-top-panel';
+exports.navTopSpace = 'nav-top-space';
+exports.overlayerGallery = 'overlayer-gallery';
+exports.paddingContainer = 'padding-container';
+exports.screenColor = 'screen-color';
+exports.screenPhoto = 'screen-photo';
+exports.veryWhitePanel = 'very-white-panel';
+exports.whitePanel = 'white-panel';
+
+},{}],13:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -669,7 +915,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.renderer = exports.navTopItem = exports.navTopSpace = exports.navTopPanel = exports.btns = exports.formControlInputs = exports.checkInputs = exports.btnInputs = exports.veryWhitePanel = exports.paddingContainer = exports.screenColor = exports.screenPhoto = exports.whitePanel = exports.overlayerGallery = exports.gridGap = void 0;
+exports.renderer = exports.helper = exports.navTopItem = exports.navTopSpace = exports.navTopPanel = exports.btns = exports.formControlInputs = exports.checkInputs = exports.btnInputs = exports.veryWhitePanel = exports.paddingContainer = exports.screenColor = exports.screenPhoto = exports.whitePanel = exports.overlayerGallery = exports.gridGap = void 0;
 exports.gridGap = __importStar(require("./grid-gap"));
 exports.overlayerGallery = __importStar(require("./overlayer-gallery"));
 exports.whitePanel = __importStar(require("./white-panel"));
@@ -684,6 +930,7 @@ exports.btns = __importStar(require("./btns"));
 exports.navTopPanel = __importStar(require("./nav-top-panel"));
 exports.navTopSpace = __importStar(require("./nav-top-space"));
 exports.navTopItem = __importStar(require("./nav-top-item"));
+exports.helper = __importStar(require("./helper"));
 var t = __importStar(require("uralsjs-templator"));
 var gridGap = __importStar(require("./grid-gap"));
 var overlayerGallery = __importStar(require("./overlayer-gallery"));
@@ -701,7 +948,7 @@ var navTopSpace = __importStar(require("./nav-top-space"));
 var navTopItem = __importStar(require("./nav-top-item"));
 exports.renderer = __assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign({}, t.html.config), gridGap.renderer), overlayerGallery.renderer), whitePanel.renderer), veryWhitePanel.renderer), screenColor.renderer), screenPhoto.renderer), paddingContainer.renderer), btnInputs.renderer), checkInputs.renderer), formControlInputs.renderer), btns.renderer), navTopPanel.renderer), navTopSpace.renderer), navTopItem.renderer);
 
-},{"./btn-inputs":6,"./btns":7,"./check-inputs":8,"./form-control-inputs":9,"./grid-gap":10,"./nav-top-item":12,"./nav-top-panel":13,"./nav-top-space":14,"./overlayer-gallery":15,"./padding-container":16,"./screen-color":17,"./screen-photo":18,"./very-white-panel":19,"./white-panel":20,"uralsjs-templator":29}],12:[function(require,module,exports){
+},{"./btn-inputs":7,"./btns":8,"./check-inputs":9,"./form-control-inputs":10,"./grid-gap":11,"./helper":12,"./nav-top-item":14,"./nav-top-panel":15,"./nav-top-space":16,"./overlayer-gallery":17,"./padding-container":18,"./screen-color":19,"./screen-photo":20,"./very-white-panel":21,"./white-panel":22,"uralsjs-templator":31}],14:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -761,7 +1008,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":29}],13:[function(require,module,exports){
+},{"uralsjs-templator":31}],15:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -819,7 +1066,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":29}],14:[function(require,module,exports){
+},{"uralsjs-templator":31}],16:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -875,7 +1122,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":29}],15:[function(require,module,exports){
+},{"uralsjs-templator":31}],17:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -950,7 +1197,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":29}],16:[function(require,module,exports){
+},{"uralsjs-templator":31}],18:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -1003,7 +1250,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":29}],17:[function(require,module,exports){
+},{"uralsjs-templator":31}],19:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -1056,7 +1303,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":29}],18:[function(require,module,exports){
+},{"uralsjs-templator":31}],20:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -1127,7 +1374,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":29}],19:[function(require,module,exports){
+},{"uralsjs-templator":31}],21:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -1180,7 +1427,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":29}],20:[function(require,module,exports){
+},{"uralsjs-templator":31}],22:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -1233,9 +1480,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":29}],21:[function(require,module,exports){
-
-},{}],22:[function(require,module,exports){
+},{"uralsjs-templator":31}],23:[function(require,module,exports){
 (function (process){(function (){
 // 'path' module extracted from Node.js v8.11.1 (only the posix part)
 // transplited with Babel
@@ -1768,7 +2013,7 @@ posix.posix = posix;
 module.exports = posix;
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":23}],23:[function(require,module,exports){
+},{"_process":24}],24:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -1954,7 +2199,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -1983,7 +2228,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.record = void 0;
 exports.record = __importStar(require("./record"));
 
-},{"./record":25}],25:[function(require,module,exports){
+},{"./record":26}],26:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.render = void 0;
@@ -1994,7 +2239,7 @@ var render = function (t) { return Object
     .join(''); };
 exports.render = render;
 
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -2151,7 +2396,138 @@ var reducer = function (acc, el) {
 };
 exports.config = exports.literals.reduce(reducer, {});
 
-},{"../config":24}],27:[function(require,module,exports){
+},{"../config":25}],28:[function(require,module,exports){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.header = exports.head = exports.h6 = exports.h5 = exports.h4 = exports.h3 = exports.h2 = exports.h1 = exports.frameset = exports.frame = exports.form = exports.footer = exports.font = exports.figure = exports.figcaption = exports.fieldset = exports.em = exports.dt = exports.dl = exports.div = exports.dir = exports.dialog = exports.dfn = exports.details = exports.del = exports.dd = exports.datalist = exports.data = exports.colgroup = exports.code = exports.cite = exports.center = exports.caption = exports.canvas = exports.button = exports.body = exports.blockquote = exports.big = exports.bdo = exports.bdi = exports.basefont = exports.b = exports.audio = exports.aside = exports.article = exports.applet = exports.address = exports.acronym = exports.abbr = exports.a = void 0;
+exports.time = exports.thead = exports.th = exports.tfoot = exports.textarea = exports.template = exports.td = exports.tbody = exports.table = exports.svg = exports.sup = exports.summary = exports.sub = exports.style = exports.strong = exports.strike = exports.span = exports.small = exports.select = exports.section = exports.script = exports.samp = exports.s = exports.ruby = exports.rt = exports.rp = exports.q = exports.progress = exports.pre = exports.picture = exports.p = exports.output = exports.option = exports.optgroup = exports.ol = exports.object = exports.noscript = exports.noframes = exports.nav = exports.meter = exports.mark = exports.map = exports.main = exports.li = exports.label = exports.kbd = exports.ins = exports.iframe = exports.i = exports.html = void 0;
+exports.wbr = exports.track = exports.source = exports.param = exports.meta = exports.link = exports.keygen = exports.input = exports.img = exports.hr = exports.embed = exports.command = exports.col = exports.br = exports.base = exports.area = exports.doctype = exports.video = exports._var = exports.ul = exports.u = exports.tt = exports.tr = exports.title = void 0;
+exports.a = 'a';
+exports.abbr = 'abbr';
+exports.acronym = 'acronym';
+exports.address = 'address';
+exports.applet = 'applet';
+exports.article = 'article';
+exports.aside = 'aside';
+exports.audio = 'audio';
+exports.b = 'b';
+exports.basefont = 'basefont';
+exports.bdi = 'bdi';
+exports.bdo = 'bdo';
+exports.big = 'big';
+exports.blockquote = 'blockquote';
+exports.body = 'body';
+exports.button = 'button';
+exports.canvas = 'canvas';
+exports.caption = 'caption';
+exports.center = 'center';
+exports.cite = 'cite';
+exports.code = 'code';
+exports.colgroup = 'colgroup';
+exports.data = 'data';
+exports.datalist = 'datalist';
+exports.dd = 'dd';
+exports.del = 'del';
+exports.details = 'details';
+exports.dfn = 'dfn';
+exports.dialog = 'dialog';
+exports.dir = 'dir';
+exports.div = 'div';
+exports.dl = 'dl';
+exports.dt = 'dt';
+exports.em = 'em';
+exports.fieldset = 'fieldset';
+exports.figcaption = 'figcaption';
+exports.figure = 'figure';
+exports.font = 'font';
+exports.footer = 'footer';
+exports.form = 'form';
+exports.frame = 'frame';
+exports.frameset = 'frameset';
+exports.h1 = 'h1';
+exports.h2 = 'h2';
+exports.h3 = 'h3';
+exports.h4 = 'h4';
+exports.h5 = 'h5';
+exports.h6 = 'h6';
+exports.head = 'head';
+exports.header = 'header';
+exports.html = 'html';
+exports.i = 'i';
+exports.iframe = 'iframe';
+exports.ins = 'ins';
+exports.kbd = 'kbd';
+exports.label = 'label';
+exports.li = 'li';
+exports.main = 'main';
+exports.map = 'map';
+exports.mark = 'mark';
+exports.meter = 'meter';
+exports.nav = 'nav';
+exports.noframes = 'noframes';
+exports.noscript = 'noscript';
+exports.object = 'object';
+exports.ol = 'ol';
+exports.optgroup = 'optgroup';
+exports.option = 'option';
+exports.output = 'output';
+exports.p = 'p';
+exports.picture = 'picture';
+exports.pre = 'pre';
+exports.progress = 'progress';
+exports.q = 'q';
+exports.rp = 'rp';
+exports.rt = 'rt';
+exports.ruby = 'ruby';
+exports.s = 's';
+exports.samp = 'samp';
+exports.script = 'script';
+exports.section = 'section';
+exports.select = 'select';
+exports.small = 'small';
+exports.span = 'span';
+exports.strike = 'strike';
+exports.strong = 'strong';
+exports.style = 'style';
+exports.sub = 'sub';
+exports.summary = 'summary';
+exports.sup = 'sup';
+exports.svg = 'svg';
+exports.table = 'table';
+exports.tbody = 'tbody';
+exports.td = 'td';
+exports.template = 'template';
+exports.textarea = 'textarea';
+exports.tfoot = 'tfoot';
+exports.th = 'th';
+exports.thead = 'thead';
+exports.time = 'time';
+exports.title = 'title';
+exports.tr = 'tr';
+exports.tt = 'tt';
+exports.u = 'u';
+exports.ul = 'ul';
+exports._var = 'var';
+exports.video = 'video';
+exports.doctype = '!DOCTYPE';
+exports.area = 'area';
+exports.base = 'base';
+exports.br = 'br';
+exports.col = 'col';
+exports.command = 'command';
+exports.embed = 'embed';
+exports.hr = 'hr';
+exports.img = 'img';
+exports.input = 'input';
+exports.keygen = 'keygen';
+exports.link = 'link';
+exports.meta = 'meta';
+exports.param = 'param';
+exports.source = 'source';
+exports.track = 'track';
+exports.wbr = 'wbr';
+
+},{}],29:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -2188,14 +2564,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.config = exports.singleTag = exports.doubleTag = void 0;
+exports.config = exports.helper = exports.singleTag = exports.doubleTag = void 0;
 exports.doubleTag = __importStar(require("./double-tag"));
 exports.singleTag = __importStar(require("./single-tag"));
+exports.helper = __importStar(require("./helper"));
 var singleTag = __importStar(require("./single-tag"));
 var doubleTag = __importStar(require("./double-tag"));
 exports.config = __assign(__assign({}, singleTag.config), doubleTag.config);
 
-},{"./double-tag":26,"./single-tag":28}],28:[function(require,module,exports){
+},{"./double-tag":27,"./helper":28,"./single-tag":30}],30:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -2262,7 +2639,7 @@ var reducer = function (acc, el) {
 };
 exports.config = exports.literals.reduce(reducer, {});
 
-},{"../config":24}],29:[function(require,module,exports){
+},{"../config":25}],31:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -2306,4 +2683,4 @@ exports.render = render;
 var typecheck = function (t, renderFuncs) { return t; };
 exports.typecheck = typecheck;
 
-},{"./config":24,"./html":27}]},{},[1]);
+},{"./config":25,"./html":29}]},{},[1]);

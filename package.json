@@ -1,6 +1,6 @@
 {
   "name": "uralsjs-def-asset",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "uralsjs def asset bundle",
   "main": "js/src/index.js",
   "scripts": {
@@ -21,6 +21,6 @@
   },
   "dependencies": {
     "superstruct": "^0.12.2",
-    "uralsjs-templator": ">=0.1.0"
+    "uralsjs-templator": ">=0.1.1"
   }
 }

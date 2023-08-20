@@ -12,6 +12,7 @@ export * as btns from "./btns";
 export * as navTopPanel from "./nav-top-panel";
 export * as navTopSpace from "./nav-top-space";
 export * as navTopItem from "./nav-top-item";
+export * as helper from "./helper";
 export declare const renderer: {
     "nav-top-item": (params: Record<string, string | number>, content: string) => string;
     "nav-top-space": (params: Record<string, string | number>, content: string) => string;

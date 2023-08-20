@@ -127,7 +127,7 @@ function switchGalleryContent(galleryContainer: HTMLElement)
     );
 }
 
-function ssrOverLayerForm(url, data = {}, alerter = null,  id = '') {
+function ssrOverLayerForm(url, data = {}, id = '') {
     const formData = new FormData();
     Object.keys(data).forEach(k => formData.append(k, data[k]));
     sendDataAjax(
@@ -137,7 +137,7 @@ function ssrOverLayerForm(url, data = {}, alerter = null,  id = '') {
             html: (res) => makeForm(res.html, id, res.header ? res.header : ''),
             error: (res) => {
                 console.log("Building overlayer form error:", res.error);
-                if(alerter) alerter.createAlert(res.error, 'danger');
+                createAlert(res.error, 'danger');
             }
         }
     );

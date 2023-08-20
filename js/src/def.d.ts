@@ -1,4 +1,4 @@
-export declare const renderer: {
+export declare const config: {
     "nav-top-space": (params: Record<string, string | number>, content: string) => string;
     "nav-top-panel": (params: Record<string, string | number>, content: string) => string;
     "btn-success": (params: Record<string, string | number>, content: string) => string;

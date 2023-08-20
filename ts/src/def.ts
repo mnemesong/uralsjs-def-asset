@@ -1,7 +1,7 @@
 import * as t from "uralsjs-templator"
 import * as tags from "./tags"
 
-export const renderer = {
+export const config = {
     ...t.html.config,
     ...tags.gridGap.renderer,
     ...tags.overlayerGallery.renderer,

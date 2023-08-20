@@ -23,10 +23,11 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.script = exports.dsl = exports.htmlTemplate = exports.def = exports.css = exports.tags = void 0;
-exports.tags = __importStar(require("./tags"));
-exports.css = __importStar(require("./css"));
-exports.def = __importStar(require("./def"));
-exports.htmlTemplate = __importStar(require("./html-template"));
-exports.dsl = __importStar(require("uralsjs-templator"));
-exports.script = __importStar(require("./script"));
+exports.getFilePath = exports.getScriptText = void 0;
+var fs = __importStar(require("fs"));
+var path = __importStar(require("path"));
+var getScriptText = function () { return fs
+    .readFileSync(path.resolve(module.path, "script.js")); };
+exports.getScriptText = getScriptText;
+var getFilePath = function () { return path.resolve(module.path, "script.js"); };
+exports.getFilePath = getFilePath;

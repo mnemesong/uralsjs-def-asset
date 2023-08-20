@@ -73,7 +73,7 @@ var page2 = templator.render([
                 ['br'],
                 [
                     'btn-info',
-                    { onclick: "createAlert('Alert!')" },
+                    { onclick: /*javascript*/ "createAlert('Alert!')" },
                     "Success"
                 ]
             ],

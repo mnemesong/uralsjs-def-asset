@@ -23,10 +23,26 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.script = exports.dsl = exports.htmlTemplate = exports.def = exports.css = exports.tags = void 0;
-exports.tags = __importStar(require("./tags"));
-exports.css = __importStar(require("./css"));
-exports.def = __importStar(require("./def"));
-exports.htmlTemplate = __importStar(require("./html-template"));
-exports.dsl = __importStar(require("uralsjs-templator"));
-exports.script = __importStar(require("./script"));
+exports.getAllPaths = exports.helper = exports.table = exports.nav = exports.main = exports.fonts = exports.colors = exports.bootstrap = void 0;
+exports.bootstrap = __importStar(require("./bootstrap"));
+exports.colors = __importStar(require("./colors"));
+exports.fonts = __importStar(require("./fonts"));
+exports.main = __importStar(require("./main"));
+exports.nav = __importStar(require("./nav"));
+exports.table = __importStar(require("./table"));
+exports.helper = __importStar(require("./helper"));
+var bootstrap = __importStar(require("./bootstrap"));
+var colors = __importStar(require("./colors"));
+var fonts = __importStar(require("./fonts"));
+var main = __importStar(require("./main"));
+var nav = __importStar(require("./nav"));
+var table = __importStar(require("./table"));
+var getAllPaths = function () { return [
+    bootstrap.getPath(),
+    colors.getPath(),
+    fonts.getPath(),
+    main.getPath(),
+    nav.getPath(),
+    table.getPath(),
+]; };
+exports.getAllPaths = getAllPaths;

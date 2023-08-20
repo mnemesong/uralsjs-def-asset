@@ -12,6 +12,7 @@ export * as btns from "./btns"
 export * as navTopPanel from "./nav-top-panel"
 export * as navTopSpace from "./nav-top-space"
 export * as navTopItem from "./nav-top-item"
+export * as helper from "./helper"
 
 import * as t from "uralsjs-templator"
 
@@ -29,6 +30,7 @@ import * as btns from "./btns"
 import * as navTopPanel from "./nav-top-panel"
 import * as navTopSpace from "./nav-top-space"
 import * as navTopItem from "./nav-top-item"
+import { helper } from "uralsjs-templator/js/src/html"
 
 export const renderer = {
     ...t.html.config,
