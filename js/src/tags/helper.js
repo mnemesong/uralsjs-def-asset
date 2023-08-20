@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.whitePanel = exports.veryWhitePanel = exports.screenPhoto = exports.screenColor = exports.paddingContainer = exports.overlayerGallery = exports.navTopSpace = exports.navTopPanel = exports.navTopItem = exports.gridGap30 = exports.gridGap20 = exports.gridGap10 = exports.gridGap5 = exports.gridGap0 = exports.weekInput = exports.urlInput = exports.timeInput = exports.telInput = exports.searchInput = exports.randgeInput = exports.passwordInput = exports.monthInput = exports.imageInput = exports.fileInput = exports.emailInput = exports.dateInput = exports.numberInput = exports.textInput = exports.radioInput = exports.hiddenInput = exports.checkboxInput = exports.btnSecondary = exports.btnPrimary = exports.btnDark = exports.btnWhite = exports.btnInfo = exports.btnWarning = exports.btnDanger = exports.btnSuccess = exports.submitInput = exports.resetInput = exports.buttonInput = void 0;
+exports.ionIcon = exports.whitePanel = exports.veryWhitePanel = exports.screenPhoto = exports.screenColor = exports.paddingContainer = exports.overlayerGallery = exports.navTopSpace = exports.navTopPanel = exports.navTopItem = exports.gridGap30 = exports.gridGap20 = exports.gridGap10 = exports.gridGap5 = exports.gridGap0 = exports.weekInput = exports.urlInput = exports.timeInput = exports.telInput = exports.searchInput = exports.randgeInput = exports.passwordInput = exports.monthInput = exports.imageInput = exports.fileInput = exports.emailInput = exports.dateInput = exports.numberInput = exports.textInput = exports.radioInput = exports.hiddenInput = exports.checkboxInput = exports.btnSecondary = exports.btnPrimary = exports.btnDark = exports.btnWhite = exports.btnInfo = exports.btnWarning = exports.btnDanger = exports.btnSuccess = exports.submitInput = exports.resetInput = exports.buttonInput = void 0;
 exports.buttonInput = 'button-input';
 exports.resetInput = 'reset-input';
 exports.submitInput = 'submit-input';
@@ -43,3 +43,4 @@ exports.screenColor = 'screen-color';
 exports.screenPhoto = 'screen-photo';
 exports.veryWhitePanel = 'very-white-panel';
 exports.whitePanel = 'white-panel';
+exports.ionIcon = 'ion-icon';

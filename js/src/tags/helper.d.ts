@@ -40,3 +40,4 @@ export declare const screenColor = "screen-color";
 export declare const screenPhoto = "screen-photo";
 export declare const veryWhitePanel = "very-white-panel";
 export declare const whitePanel = "white-panel";
+export declare const ionIcon = "ion-icon";

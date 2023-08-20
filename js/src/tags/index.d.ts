@@ -13,7 +13,9 @@ export * as navTopPanel from "./nav-top-panel";
 export * as navTopSpace from "./nav-top-space";
 export * as navTopItem from "./nav-top-item";
 export * as helper from "./helper";
+export * as ionIcon from "./ion-icon";
 export declare const renderer: {
+    "ion-icon": (params: Record<string, string | number>, content: string) => string;
     "nav-top-item": (params: Record<string, string | number>, content: string) => string;
     "nav-top-space": (params: Record<string, string | number>, content: string) => string;
     "nav-top-panel": (params: Record<string, string | number>, content: string) => string;

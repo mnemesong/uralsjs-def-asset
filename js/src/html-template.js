@@ -59,6 +59,7 @@ var renderHtml = function (t, content) {
         ['body', t.bodyParams, content],
     ]
         .concat(t.jsFileUrls.map(function (url) { return ['script', { src: url }]; }))
-        .concat(t.jsScripts.map(function (script) { return ['script', {}, script]; })), htmlDslDef.tags.renderer);
+        .concat(t.jsScripts.map(function (script) { return ['script', {}, script]; }))
+        .concat([t.advTags ? t.advTags : '']), htmlDslDef.tags.renderer);
 };
 exports.renderHtml = renderHtml;

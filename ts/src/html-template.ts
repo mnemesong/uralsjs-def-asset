@@ -8,6 +8,7 @@ export type T = {
     cssFileUrls: string[],
     jsFileUrls: string[],
     jsScripts: string[],
+    advTags?: string,
     bodyParams: htmlDsl.config.record.T
 }
 
@@ -47,7 +48,8 @@ export const renderHtml = (t: T, content: string): string => {
         ['body', t.bodyParams, content],
     ]
         .concat(t.jsFileUrls.map(url => ['script', {src: url}]))
-        .concat(t.jsScripts.map(script => ['script', {}, script])) as htmlDsl.T<
+        .concat(t.jsScripts.map(script => ['script', {}, script]))
+        .concat([t.advTags ? t.advTags : '']) as htmlDsl.T<
             typeof htmlDsl.html.doubleTag.literals[number] 
     >, htmlDslDef.tags.renderer)
 }
