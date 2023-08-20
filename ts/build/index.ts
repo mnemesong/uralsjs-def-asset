@@ -19,5 +19,3 @@ browserifyFile(
     path.resolve(module.path, "bundle.js"), 
     path.resolve(testResPath, "bundle.js")
 )
-
-fs.copyFileSync(path.resolve(module.path, "main.js"), path.resolve(testResPath, "main.js"))

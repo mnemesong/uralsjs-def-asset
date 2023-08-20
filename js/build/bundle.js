@@ -24,7 +24,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var templator = __importStar(require("uralsjs-templator"));
-var index = __importStar(require("../src"));
+var src = __importStar(require("../src"));
 var page1 = templator.render(['screen-color',
     {},
     ['padding-container',
@@ -56,7 +56,7 @@ var page1 = templator.render(['screen-color',
             '&nbsp;',
         ]
     ],
-], index.tags.renderer);
+], src.tags.renderer);
 var page2 = templator.render([
     'screen-photo',
     { photo: './1.jpg' },
@@ -73,7 +73,7 @@ var page2 = templator.render([
                 ['br'],
                 [
                     'btn-info',
-                    { onclick: /*javascript*/ "createAlert('Alert!')" },
+                    { id: "create-alert-btn" },
                     "Success"
                 ]
             ],
@@ -90,7 +90,7 @@ var page2 = templator.render([
             ],
         ]
     ]
-], index.tags.renderer);
+], src.tags.renderer);
 var menu = templator.render([
     'nav-top-panel',
     {},
@@ -103,9 +103,11 @@ var menu = templator.render([
             'Brand'
         ]
     ]
-], index.tags.renderer)
-    + templator.render(['nav-top-space'], index.tags.renderer);
+], src.tags.renderer)
+    + templator.render(['nav-top-space'], src.tags.renderer);
 var render = function () {
     document.body.innerHTML = menu + page1 + page2;
 };
 render();
+document.getElementById('create-alert-btn').onclick = function (event) { return src
+    .script.createAlert("Alert!"); };

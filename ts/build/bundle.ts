@@ -1,5 +1,5 @@
 import * as templator from "uralsjs-templator"
-import * as index from "../src"
+import * as src from "../src"
 
 const page1 = templator.render(
     [   'screen-color', 
@@ -34,7 +34,7 @@ const page1 = templator.render(
             ]
         ],
     ],
-    index.tags.renderer
+    src.tags.renderer
 )
 
 const page2 = templator.render(
@@ -54,7 +54,7 @@ const page2 = templator.render(
                     ['br'],
                     [
                         'btn-info',
-                        {onclick: /*javascript*/`createAlert('Alert!')`},
+                        {id: "create-alert-btn"},
                         "Success"
                     ]
                 ],
@@ -72,7 +72,7 @@ const page2 = templator.render(
             ]
         ]
     ],
-    index.tags.renderer
+    src.tags.renderer
 )
 
 const menu = templator.render([
@@ -87,11 +87,14 @@ const menu = templator.render([
                 'Brand'
             ]
         ]
-    ], index.tags.renderer)
-    + templator.render(['nav-top-space'], index.tags.renderer)
+    ], src.tags.renderer)
+    + templator.render(['nav-top-space'], src.tags.renderer)
 
 const render = () => {
     document.body.innerHTML = menu + page1 + page2
 }
 
 render()
+
+document.getElementById('create-alert-btn').onclick = (event) => src
+    .script.createAlert("Alert!")

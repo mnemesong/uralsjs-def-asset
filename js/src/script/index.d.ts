@@ -1,3 +1,12 @@
-/// <reference types="node" />
-export declare const getFilePath: () => string;
-export declare const getScriptText: () => Buffer;
+export declare function addOverLayer(id?: string | null): HTMLDivElement;
+export declare function makeForm(html: string, id?: string, header?: string): void;
+export declare function makePopupGallery(contentHtmlsArray: string[], id?: string, index?: number): void;
+export declare function switchGalleryContentRight(handler: HTMLElement): void;
+export declare function switchGalleryContentLeft(handler: HTMLElement): void;
+export declare function switchGalleryContent(galleryContainer: HTMLElement): void;
+export declare function ssrOverLayerForm(url: any, data?: {}, id?: string): void;
+export declare function ssrPopupGallery(url: any, data?: {}, alerter?: any, id?: string): void;
+export declare function createAlert(text: any, style?: string): void;
+export declare function errorReaction(response: any): void;
+export declare function onPressEnter(event: any, handler: any, fn: any): void;
+export declare function clickSubmitBtnInForm(handler: any): void;
