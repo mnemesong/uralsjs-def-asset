@@ -111,9 +111,8 @@ function switchGalleryContent(galleryContainer) {
         return el.style.display = (el.getAttribute('data-id') === shownId ? 'block' : 'none');
     });
 }
-function ssrOverLayerForm(url, data, alerter, id) {
+function ssrOverLayerForm(url, data, id) {
     if (data === void 0) { data = {}; }
-    if (alerter === void 0) { alerter = null; }
     if (id === void 0) { id = ''; }
     var formData = new FormData();
     Object.keys(data).forEach(function (k) { return formData.append(k, data[k]); });
@@ -121,8 +120,7 @@ function ssrOverLayerForm(url, data, alerter, id) {
         html: function (res) { return makeForm(res.html, id, res.header ? res.header : ''); },
         error: function (res) {
             console.log("Building overlayer form error:", res.error);
-            if (alerter)
-                alerter.createAlert(res.error, 'danger');
+            createAlert(res.error, 'danger');
         }
     });
 }

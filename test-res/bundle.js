@@ -111,7 +111,7 @@ var render = function () {
 };
 render();
 
-},{"../src":5,"uralsjs-templator":31}],2:[function(require,module,exports){
+},{"../src":12,"uralsjs-templator":39}],2:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -137,40 +137,328 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getPath = exports.getAll = exports.getColors = exports.getTable = exports.getNav = exports.getMain = exports.getFonts = exports.getBootstrap = void 0;
-var p = __importStar(require("path"));
-var getBootstrap = function () { return p
-    .resolve(module.path, "..", "..", "resources", "bootstrap.min.css"); };
-exports.getBootstrap = getBootstrap;
-var getFonts = function () { return p
-    .resolve(module.path, "..", "..", "resources", "fonts.css"); };
-exports.getFonts = getFonts;
-var getMain = function () { return p
-    .resolve(module.path, "..", "..", "resources", "main.css"); };
-exports.getMain = getMain;
-var getNav = function () { return p
-    .resolve(module.path, "..", "..", "resources", "nav.css"); };
-exports.getNav = getNav;
-var getTable = function () { return p
-    .resolve(module.path, "..", "..", "resources", "table.css"); };
-exports.getTable = getTable;
-var getColors = function () { return p
-    .resolve(module.path, "..", "..", "resources", "colors.css"); };
-exports.getColors = getColors;
-var getAll = function () { return [
-    (0, exports.getBootstrap)(),
-    (0, exports.getFonts)(),
-    (0, exports.getMain)(),
-    (0, exports.getNav)(),
-    (0, exports.getTable)(),
-    (0, exports.getColors)(),
-]; };
-exports.getAll = getAll;
-var getPath = function () { return p
-    .resolve(module.path, "..", "..", "resources"); };
+exports.getContent = exports.getPath = void 0;
+var path = __importStar(require("path"));
+var fs = __importStar(require("fs"));
+var getPath = function () { return path
+    .resolve(module.path, "..", "..", "..", "resources", "bootstrap.min.css"); };
 exports.getPath = getPath;
+var getContent = function () { return fs
+    .readFileSync((0, exports.getPath)()); };
+exports.getContent = getContent;
 
-},{"path":23}],3:[function(require,module,exports){
+},{"fs":30,"path":31}],3:[function(require,module,exports){
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getContent = exports.getPath = void 0;
+var path = __importStar(require("path"));
+var fs = __importStar(require("fs"));
+var getPath = function () { return path
+    .resolve(module.path, "..", "..", "..", "resources", "colors.css"); };
+exports.getPath = getPath;
+var getContent = function () { return fs
+    .readFileSync((0, exports.getPath)()); };
+exports.getContent = getContent;
+
+},{"fs":30,"path":31}],4:[function(require,module,exports){
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getContent = exports.getPath = void 0;
+var path = __importStar(require("path"));
+var fs = __importStar(require("fs"));
+var getPath = function () { return path
+    .resolve(module.path, "..", "..", "..", "resources", "fonts.css"); };
+exports.getPath = getPath;
+var getContent = function () { return fs
+    .readFileSync((0, exports.getPath)()); };
+exports.getContent = getContent;
+
+},{"fs":30,"path":31}],5:[function(require,module,exports){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.centerContainer = exports.galleryContentContainer = exports.contentContainer = exports.paddingWidth = exports.paddingContainer = exports.screenSticky = exports.darkScreen = exports.screen = exports.hoverableT = exports.hoverablePar = exports.hoverable = exports.clickable = exports.overlayer = exports.overlayerBg = exports.formLarge = exports.formMedium = exports.formSmall = exports.gridGap30 = exports.gridGap20 = exports.gridGap10 = exports.gridGap5 = exports.gridGap0 = exports.h100 = exports.w100 = exports.content = exports.videoMarker = exports.hoverableImgDark = exports.fontLarge = exports.fontNormal = exports.fontSmall = exports.bgColorHovTransparent = exports.bgColorTransparent = exports.bgColorHovRed = exports.bgColorRed = exports.colorHovBorderRed = exports.colorBorderRed = exports.colorHovRed = exports.colorRed = exports.bgColorHovLight = exports.bgColorLight = exports.colorHovBorderLight = exports.colorBorderLight = exports.colorHovLight = exports.colorLight = exports.bgColorHovDark = exports.bgColorDark = exports.colorHovBorderDark = exports.colorBorderDark = exports.colorHovDark = exports.colorDark = void 0;
+exports.tableW = exports.tableD = exports.navItem = exports.topNavRight = exports.topNavLeft = exports.topNavLogo = exports.topNav = exports.icon20 = exports.alertBlockSuccess = exports.alertBlockWarning = exports.alertBlockDanger = exports.alertBlock = exports.alertContainer = exports.heightMinContent = exports.loader = exports.galleryContent = exports.galleryClose = exports.galleryRight = exports.galleryLeft = exports.galleryElem = exports.galleryContainer = exports.popupContent = exports.absoluteCentralized = exports.veryWhitePanel = exports.whitePanel = void 0;
+exports.colorDark = 'color-dark';
+exports.colorHovDark = 'color-hov-dark';
+exports.colorBorderDark = 'color-border-dark';
+exports.colorHovBorderDark = 'color-hov-border-dark';
+exports.bgColorDark = 'bg-color-dark';
+exports.bgColorHovDark = 'bg-color-hov-dark';
+exports.colorLight = 'color-light';
+exports.colorHovLight = 'color-hov-light';
+exports.colorBorderLight = 'color-border-light';
+exports.colorHovBorderLight = 'color-hov-border-light';
+exports.bgColorLight = 'bg-color-light';
+exports.bgColorHovLight = 'bg-color-hov-light';
+exports.colorRed = 'color-red';
+exports.colorHovRed = 'color-hov-red';
+exports.colorBorderRed = 'color-border-red';
+exports.colorHovBorderRed = 'color-hov-border-red';
+exports.bgColorRed = 'bg-color-red';
+exports.bgColorHovRed = 'bg-color-hov-red';
+exports.bgColorTransparent = 'bg-color-transparent';
+exports.bgColorHovTransparent = 'bg-color-hov-transparent';
+exports.fontSmall = 'font-small';
+exports.fontNormal = 'font-normal';
+exports.fontLarge = 'font-large';
+exports.hoverableImgDark = 'hoverable-img-dark';
+exports.videoMarker = 'video-marker';
+exports.content = 'content';
+exports.w100 = 'w-100';
+exports.h100 = 'h-100';
+exports.gridGap0 = 'grid-gap-0';
+exports.gridGap5 = 'grid-gap-5';
+exports.gridGap10 = 'grid-gap-10';
+exports.gridGap20 = 'grid-gap-20';
+exports.gridGap30 = 'grid-gap-30';
+exports.formSmall = 'form-small';
+exports.formMedium = 'form-medium';
+exports.formLarge = 'form-large';
+exports.overlayerBg = 'overlayer-bg';
+exports.overlayer = 'overlayer';
+exports.clickable = 'clickable';
+exports.hoverable = 'hoverable';
+exports.hoverablePar = 'hoverable-par';
+exports.hoverableT = 'hoverable-t';
+exports.screen = 'screen';
+exports.darkScreen = 'dark-screen';
+exports.screenSticky = 'screen-sticky';
+exports.paddingContainer = 'padding-container';
+exports.paddingWidth = 'padding-width';
+exports.contentContainer = 'content-container';
+exports.galleryContentContainer = 'gallery-content-container';
+exports.centerContainer = 'center-container';
+exports.whitePanel = 'white-panel';
+exports.veryWhitePanel = 'very-white-panel';
+exports.absoluteCentralized = 'absolute-centralized';
+exports.popupContent = 'popup-content';
+exports.galleryContainer = 'gallery-container';
+exports.galleryElem = 'gallery-elem';
+exports.galleryLeft = 'gallery-left';
+exports.galleryRight = 'gallery-right';
+exports.galleryClose = 'gallery-close';
+exports.galleryContent = 'gallery-content';
+exports.loader = 'loader';
+exports.heightMinContent = 'height-min-content';
+exports.alertContainer = 'alert-container';
+exports.alertBlock = 'alert-block';
+exports.alertBlockDanger = 'alert-block-danger';
+exports.alertBlockWarning = 'alert-block-warning';
+exports.alertBlockSuccess = 'alert-block-success';
+exports.icon20 = 'icon20';
+exports.topNav = 'top-nav';
+exports.topNavLogo = 'top-nav-logo';
+exports.topNavLeft = 'top-nav-left';
+exports.topNavRight = 'top-nav-right';
+exports.navItem = 'nav-item';
+exports.tableD = 'table-d';
+exports.tableW = 'table-w';
+
+},{}],6:[function(require,module,exports){
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getAllPaths = exports.helper = exports.table = exports.nav = exports.main = exports.fonts = exports.colors = exports.bootstrap = void 0;
+exports.bootstrap = __importStar(require("./bootstrap"));
+exports.colors = __importStar(require("./colors"));
+exports.fonts = __importStar(require("./fonts"));
+exports.main = __importStar(require("./main"));
+exports.nav = __importStar(require("./nav"));
+exports.table = __importStar(require("./table"));
+exports.helper = __importStar(require("./helper"));
+var bootstrap = __importStar(require("./bootstrap"));
+var colors = __importStar(require("./colors"));
+var fonts = __importStar(require("./fonts"));
+var main = __importStar(require("./main"));
+var nav = __importStar(require("./nav"));
+var table = __importStar(require("./table"));
+var getAllPaths = function () { return [
+    bootstrap.getPath(),
+    colors.getPath(),
+    fonts.getPath(),
+    main.getPath(),
+    nav.getPath(),
+    table.getPath(),
+]; };
+exports.getAllPaths = getAllPaths;
+
+},{"./bootstrap":2,"./colors":3,"./fonts":4,"./helper":5,"./main":7,"./nav":8,"./table":9}],7:[function(require,module,exports){
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getContent = exports.getPath = void 0;
+var path = __importStar(require("path"));
+var fs = __importStar(require("fs"));
+var getPath = function () { return path
+    .resolve(module.path, "..", "..", "..", "resources", "main.css"); };
+exports.getPath = getPath;
+var getContent = function () { return fs
+    .readFileSync((0, exports.getPath)()); };
+exports.getContent = getContent;
+
+},{"fs":30,"path":31}],8:[function(require,module,exports){
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getContent = exports.getPath = void 0;
+var path = __importStar(require("path"));
+var fs = __importStar(require("fs"));
+var getPath = function () { return path
+    .resolve(module.path, "..", "..", "..", "resources", "nav.css"); };
+exports.getPath = getPath;
+var getContent = function () { return fs
+    .readFileSync((0, exports.getPath)()); };
+exports.getContent = getContent;
+
+},{"fs":30,"path":31}],9:[function(require,module,exports){
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getContent = exports.getPath = void 0;
+var path = __importStar(require("path"));
+var fs = __importStar(require("fs"));
+var getPath = function () { return path
+    .resolve(module.path, "..", "..", "..", "resources", "table.css"); };
+exports.getPath = getPath;
+var getContent = function () { return fs
+    .readFileSync((0, exports.getPath)()); };
+exports.getContent = getContent;
+
+},{"fs":30,"path":31}],10:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -212,7 +500,7 @@ var t = __importStar(require("uralsjs-templator"));
 var tags = __importStar(require("./tags"));
 exports.config = __assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign({}, t.html.config), tags.gridGap.renderer), tags.overlayerGallery.renderer), tags.whitePanel.renderer), tags.veryWhitePanel.renderer), tags.screenColor.renderer), tags.screenPhoto.renderer), tags.paddingContainer.renderer), tags.btnInputs.renderer), tags.checkInputs.renderer), tags.formControlInputs.renderer), tags.btns.renderer), tags.navTopPanel.renderer), tags.navTopSpace.renderer);
 
-},{"./tags":13,"uralsjs-templator":31}],4:[function(require,module,exports){
+},{"./tags":20,"uralsjs-templator":39}],11:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -278,7 +566,7 @@ var renderHtml = function (t, content) {
 };
 exports.renderHtml = renderHtml;
 
-},{"../src":5,"uralsjs-templator":31}],5:[function(require,module,exports){
+},{"../src":12,"uralsjs-templator":39}],12:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -310,212 +598,44 @@ exports.css = __importStar(require("./css"));
 exports.def = __importStar(require("./def"));
 exports.htmlTemplate = __importStar(require("./html-template"));
 exports.dsl = __importStar(require("uralsjs-templator"));
-exports.script = __importStar(require("./script"));
+exports.script = __importStar(require("./script/index"));
 
-},{"./css":2,"./def":3,"./html-template":4,"./script":6,"./tags":13,"uralsjs-templator":31}],6:[function(require,module,exports){
-function addOverLayer(id) {
-    if (id === void 0) { id = null; }
-    var overLayer = document.createElement("div");
-    if (id)
-        overLayer.id = id;
-    overLayer.innerHTML = '<div onclick="this.closest(\'.overlayer\').remove()"'
-        + ' class="overlayer-bg">'
-        + '<a href="#" style="color:#999" onmouseover="this.style.color=\'#ccc\'" '
-        + 'onmouseleave="this.style.color=\'#999\'">'
-        + '</a></div>';
-    overLayer.classList.add('overlayer');
-    document.body.after(overLayer);
-    return overLayer;
-}
-function makeForm(html, id, header) {
-    if (id === void 0) { id = ''; }
-    if (header === void 0) { header = ''; }
-    var newOverLayer = addOverLayer(id);
-    newOverLayer.innerHTML = newOverLayer.innerHTML + '<div class="very-white-panel '
-        + 'content-container height-min p-4 absolute-centralized">'
-        + '<div class="popup-content">'
-        + '<h3 class="popup-header p-0 m-0">' + header + '</h3>'
-        + '<ion-icon name="close-outline" class="w-100 h-100 color-hov-red clickable" '
-        + 'style="z-index: 1200;" '
-        + 'onclick="this.closest(\'.overlayer\').remove()"></ion-icon>'
-        + '<div class="popup-html">' + html + '</div>'
-        + '</div></div>';
-    var lastChild = newOverLayer.lastElementChild;
-    if (!(lastChild instanceof HTMLElement)) {
-        throw new Error("Last child is not HTMLElement");
+},{"./css":6,"./def":10,"./html-template":11,"./script/index":13,"./tags":20,"uralsjs-templator":39}],13:[function(require,module,exports){
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
     }
-    if (lastChild.offsetHeight > newOverLayer.offsetHeight) {
-        lastChild.style.marginTop = '50px';
-        lastChild.style.marginBottom = '50px';
-    }
-    Array.from(newOverLayer.getElementsByTagName('script')).forEach(function (scriptBlock) {
-        eval(scriptBlock.innerHTML);
-    });
-}
-function makePopupGallery(contentHtmlsArray, id, index) {
-    if (id === void 0) { id = ''; }
-    if (index === void 0) { index = 0; }
-    contentHtmlsArray = Array.isArray(contentHtmlsArray) ? contentHtmlsArray : [contentHtmlsArray];
-    var newOverLayer = addOverLayer(id);
-    var contentsHtml = contentHtmlsArray.map(function (el, i) {
-        return '<div class="content-container gallery-content-container '
-            + 'absolute-centralized" style="display: none" data-id="' + i + '">'
-            + el + '</div>';
-    });
-    var galleryHtml = '<div class="gallery-container" data-show="'
-        + index.toString() + '"><div class="w-100 h-100" '
-        + 'onclick="this.closest(\'.overlayer\').remove()">&nbsp;</div>'
-        + ((contentHtmlsArray.length > 1)
-            ? ('<div class="gallery-elem gallery-left" onclick="switchGalleryContentLeft(this)">'
-                + '<ion-icon name="chevron-back-outline"></ion-icon></div>'
-                + '<div class="gallery-elem gallery-right" onclick="switchGalleryContentRight(this)">'
-                + '<ion-icon name="chevron-forward-outline"></ion-icon></div>')
-            : '')
-        + '<div class="gallery-elem gallery-close" onclick="this.closest(\'.overlayer\').remove()">'
-        + '<ion-icon name="close-outline"></ion-icon></div>'
-        + contentsHtml.join('')
-        + '</div>';
-    newOverLayer.innerHTML = newOverLayer.innerHTML + galleryHtml;
-    switchGalleryContent(newOverLayer.querySelector('.gallery-container'));
-    Array.from(newOverLayer.getElementsByTagName('script')).forEach(function (scriptBlock) {
-        eval(scriptBlock.innerHTML);
-    });
-}
-function switchGalleryContentRight(handler) {
-    var galleryContainer = handler.closest('.gallery-container');
-    var targetShowId = parseInt(galleryContainer.getAttribute('data-show')) + 1;
-    var galleryContents = Array.from(galleryContainer.getElementsByClassName('content-container'));
-    var maxGalleryId = galleryContents
-        .map(function (el) { return parseInt(el.getAttribute('data-id')); })
-        .reduce(function (prev, cur) { return Math.max(prev, cur); });
-    if (targetShowId > maxGalleryId) {
-        targetShowId = 0;
-    }
-    galleryContainer.setAttribute('data-show', targetShowId.toString());
-    if (!(galleryContainer instanceof HTMLElement)) {
-        throw new Error("gelleryContainer is not HTMLElement");
-    }
-    switchGalleryContent(galleryContainer);
-}
-function switchGalleryContentLeft(handler) {
-    var galleryContainer = handler.closest('.gallery-container');
-    var targetShowId = parseInt(galleryContainer.getAttribute('data-show')) - 1;
-    var galleryContents = Array.from(galleryContainer.getElementsByClassName('content-container'));
-    var maxGalleryId = galleryContents
-        .map(function (el) { return parseInt(el.getAttribute('data-id')); })
-        .reduce(function (prev, cur) { return Math.max(prev, cur); });
-    if (targetShowId < 0) {
-        targetShowId = maxGalleryId;
-    }
-    galleryContainer.setAttribute('data-show', targetShowId.toString());
-    if (!(galleryContainer instanceof HTMLElement)) {
-        throw new Error("gelleryContainer is not HTMLElement");
-    }
-    switchGalleryContent(galleryContainer);
-}
-function switchGalleryContent(galleryContainer) {
-    var shownId = galleryContainer.getAttribute('data-show');
-    var galleryContents = Array
-        .from(galleryContainer.getElementsByClassName('content-container'))
-        .map(function (el) {
-        if (!(el instanceof HTMLElement))
-            throw new Error("galleryElement is not HTMLElement");
-        return el;
-    });
-    galleryContents.forEach(function (el) {
-        return el.style.display = (el.getAttribute('data-id') === shownId ? 'block' : 'none');
-    });
-}
-function ssrOverLayerForm(url, data, alerter, id) {
-    if (data === void 0) { data = {}; }
-    if (alerter === void 0) { alerter = null; }
-    if (id === void 0) { id = ''; }
-    var formData = new FormData();
-    Object.keys(data).forEach(function (k) { return formData.append(k, data[k]); });
-    sendDataAjax(axiosBrowser(), formData, { action: url, method: 'get' }, {
-        html: function (res) { return makeForm(res.html, id, res.header ? res.header : ''); },
-        error: function (res) {
-            console.log("Building overlayer form error:", res.error);
-            if (alerter)
-                alerter.createAlert(res.error, 'danger');
-        }
-    });
-}
-function ssrPopupGallery(url, data, alerter, id) {
-    if (data === void 0) { data = {}; }
-    if (alerter === void 0) { alerter = null; }
-    if (id === void 0) { id = ''; }
-    var formData = new FormData();
-    Object.keys(data).forEach(function (k) { return formData.append(k, data[k]); });
-    sendDataAjax(axiosBrowser(), formData, { action: url, method: 'get' }, {
-        html: function (res) { return makePopupGallery(res.html, id, res.index ? parseInt(res.index) : 0); },
-        htmls: function (res) { return makePopupGallery(res.htmls, id, res.index ? parseInt(res.index) : 0); },
-        error: function (res) {
-            console.log("Building overlayer form error:", res.error);
-            if (alerter)
-                alerter.createAlert(res.error, 'danger');
-        }
-    });
-}
-function createAlert(text, style) {
-    if (style === void 0) { style = 'danger'; }
-    console.log("Alert " + style, text);
-    var alertContainer = document.getElementById("alertContainer");
-    if (!alertContainer) {
-        var body = document.querySelector('body');
-        var divEl = document.createElement('div');
-        body.append(divEl);
-        divEl.outerHTML = "<div class='alert-container' id='alertContainer'></div>";
-    }
-    setTimeout(function () {
-        alertContainer = document.getElementById("alertContainer");
-        var alertBlock = document.createElement('div');
-        alertContainer.append(alertBlock);
-        var id = Math.round(Math.random() * 1000);
-        alertBlock.outerHTML = "<div class='alert-block alert-block-"
-            + style + "' id='alertCont_" + id.toString()
-            + "' style='opacity: 0;'>" + text + "</div>";
-        setTimeout(function () {
-            alertBlock = document
-                .getElementById("alertCont_" + id.toString());
-            alertBlock.style.opacity = '1';
-        }, 50);
-        setTimeout(function () {
-            alertBlock = document
-                .getElementById("alertCont_" + id.toString());
-            alertBlock.style.opacity = '0';
-        }, 4400);
-        setTimeout(function () {
-            alertBlock = document
-                .getElementById("alertCont_" + id.toString());
-            alertBlock.style.height = '0';
-        }, 4800);
-        setTimeout(function () {
-            var alertBlock = document
-                .getElementById("alertCont_" + id.toString());
-            alertBlock.remove();
-        }, 5000);
-    }, 50);
-}
-function errorReaction(response) {
-    if (response.error) {
-        createAlert(response.error);
-    }
-    if (response.details) {
-        console.log(response.details);
-    }
-}
-function onPressEnter(event, handler, fn) {
-    if (event.key === "Enter") {
-        event.preventDefault();
-        fn(handler);
-    }
-}
-function clickSubmitBtnInForm(handler) {
-    handler.closest('form').querySelector('.submit-button').click();
-}
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getScriptText = exports.getFilePath = void 0;
+var fs = __importStar(require("fs"));
+var path = __importStar(require("path"));
+var getFilePath = function () { return path
+    .resolve(module.path, '..', '..', 'build', "main.js"); };
+exports.getFilePath = getFilePath;
+var getScriptText = function () { return fs.readFileSync((0, exports.getFilePath)()); };
+exports.getScriptText = getScriptText;
 
-},{}],7:[function(require,module,exports){
+},{"fs":30,"path":31}],14:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -578,7 +698,7 @@ exports.literals.forEach(function (l) {
     };
 });
 
-},{"uralsjs-templator":31}],8:[function(require,module,exports){
+},{"uralsjs-templator":39}],15:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -642,7 +762,7 @@ exports.literals.forEach(function (l) {
     };
 });
 
-},{"uralsjs-templator":31}],9:[function(require,module,exports){
+},{"uralsjs-templator":39}],16:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -701,7 +821,7 @@ exports.literals.forEach(function (l) {
     };
 });
 
-},{"uralsjs-templator":31}],10:[function(require,module,exports){
+},{"uralsjs-templator":39}],17:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -771,7 +891,7 @@ exports.literals.forEach(function (l) {
     };
 });
 
-},{"uralsjs-templator":31}],11:[function(require,module,exports){
+},{"uralsjs-templator":39}],18:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -831,7 +951,7 @@ exports.literals.forEach(function (l) {
     };
 });
 
-},{"uralsjs-templator":31}],12:[function(require,module,exports){
+},{"uralsjs-templator":39}],19:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.whitePanel = exports.veryWhitePanel = exports.screenPhoto = exports.screenColor = exports.paddingContainer = exports.overlayerGallery = exports.navTopSpace = exports.navTopPanel = exports.navTopItem = exports.gridGap30 = exports.gridGap20 = exports.gridGap10 = exports.gridGap5 = exports.gridGap0 = exports.weekInput = exports.urlInput = exports.timeInput = exports.telInput = exports.searchInput = exports.randgeInput = exports.passwordInput = exports.monthInput = exports.imageInput = exports.fileInput = exports.emailInput = exports.dateInput = exports.numberInput = exports.textInput = exports.radioInput = exports.hiddenInput = exports.checkboxInput = exports.btnSecondary = exports.btnPrimary = exports.btnDark = exports.btnWhite = exports.btnInfo = exports.btnWarning = exports.btnDanger = exports.btnSuccess = exports.submitInput = exports.resetInput = exports.buttonInput = void 0;
@@ -878,7 +998,7 @@ exports.screenPhoto = 'screen-photo';
 exports.veryWhitePanel = 'very-white-panel';
 exports.whitePanel = 'white-panel';
 
-},{}],13:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -948,7 +1068,7 @@ var navTopSpace = __importStar(require("./nav-top-space"));
 var navTopItem = __importStar(require("./nav-top-item"));
 exports.renderer = __assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign({}, t.html.config), gridGap.renderer), overlayerGallery.renderer), whitePanel.renderer), veryWhitePanel.renderer), screenColor.renderer), screenPhoto.renderer), paddingContainer.renderer), btnInputs.renderer), checkInputs.renderer), formControlInputs.renderer), btns.renderer), navTopPanel.renderer), navTopSpace.renderer), navTopItem.renderer);
 
-},{"./btn-inputs":7,"./btns":8,"./check-inputs":9,"./form-control-inputs":10,"./grid-gap":11,"./helper":12,"./nav-top-item":14,"./nav-top-panel":15,"./nav-top-space":16,"./overlayer-gallery":17,"./padding-container":18,"./screen-color":19,"./screen-photo":20,"./very-white-panel":21,"./white-panel":22,"uralsjs-templator":31}],14:[function(require,module,exports){
+},{"./btn-inputs":14,"./btns":15,"./check-inputs":16,"./form-control-inputs":17,"./grid-gap":18,"./helper":19,"./nav-top-item":21,"./nav-top-panel":22,"./nav-top-space":23,"./overlayer-gallery":24,"./padding-container":25,"./screen-color":26,"./screen-photo":27,"./very-white-panel":28,"./white-panel":29,"uralsjs-templator":39}],21:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -1008,7 +1128,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":31}],15:[function(require,module,exports){
+},{"uralsjs-templator":39}],22:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -1066,7 +1186,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":31}],16:[function(require,module,exports){
+},{"uralsjs-templator":39}],23:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -1122,7 +1242,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":31}],17:[function(require,module,exports){
+},{"uralsjs-templator":39}],24:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -1197,7 +1317,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":31}],18:[function(require,module,exports){
+},{"uralsjs-templator":39}],25:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -1250,7 +1370,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":31}],19:[function(require,module,exports){
+},{"uralsjs-templator":39}],26:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -1303,7 +1423,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":31}],20:[function(require,module,exports){
+},{"uralsjs-templator":39}],27:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -1374,7 +1494,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":31}],21:[function(require,module,exports){
+},{"uralsjs-templator":39}],28:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -1427,7 +1547,7 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":31}],22:[function(require,module,exports){
+},{"uralsjs-templator":39}],29:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -1480,7 +1600,9 @@ exports.renderer = {
     }
 };
 
-},{"uralsjs-templator":31}],23:[function(require,module,exports){
+},{"uralsjs-templator":39}],30:[function(require,module,exports){
+
+},{}],31:[function(require,module,exports){
 (function (process){(function (){
 // 'path' module extracted from Node.js v8.11.1 (only the posix part)
 // transplited with Babel
@@ -2013,7 +2135,7 @@ posix.posix = posix;
 module.exports = posix;
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":24}],24:[function(require,module,exports){
+},{"_process":32}],32:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -2199,7 +2321,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],25:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -2228,7 +2350,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.record = void 0;
 exports.record = __importStar(require("./record"));
 
-},{"./record":26}],26:[function(require,module,exports){
+},{"./record":34}],34:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.render = void 0;
@@ -2239,7 +2361,7 @@ var render = function (t) { return Object
     .join(''); };
 exports.render = render;
 
-},{}],27:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -2396,7 +2518,7 @@ var reducer = function (acc, el) {
 };
 exports.config = exports.literals.reduce(reducer, {});
 
-},{"../config":25}],28:[function(require,module,exports){
+},{"../config":33}],36:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.header = exports.head = exports.h6 = exports.h5 = exports.h4 = exports.h3 = exports.h2 = exports.h1 = exports.frameset = exports.frame = exports.form = exports.footer = exports.font = exports.figure = exports.figcaption = exports.fieldset = exports.em = exports.dt = exports.dl = exports.div = exports.dir = exports.dialog = exports.dfn = exports.details = exports.del = exports.dd = exports.datalist = exports.data = exports.colgroup = exports.code = exports.cite = exports.center = exports.caption = exports.canvas = exports.button = exports.body = exports.blockquote = exports.big = exports.bdo = exports.bdi = exports.basefont = exports.b = exports.audio = exports.aside = exports.article = exports.applet = exports.address = exports.acronym = exports.abbr = exports.a = void 0;
@@ -2527,7 +2649,7 @@ exports.source = 'source';
 exports.track = 'track';
 exports.wbr = 'wbr';
 
-},{}],29:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -2572,7 +2694,7 @@ var singleTag = __importStar(require("./single-tag"));
 var doubleTag = __importStar(require("./double-tag"));
 exports.config = __assign(__assign({}, singleTag.config), doubleTag.config);
 
-},{"./double-tag":27,"./helper":28,"./single-tag":30}],30:[function(require,module,exports){
+},{"./double-tag":35,"./helper":36,"./single-tag":38}],38:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -2639,7 +2761,7 @@ var reducer = function (acc, el) {
 };
 exports.config = exports.literals.reduce(reducer, {});
 
-},{"../config":25}],31:[function(require,module,exports){
+},{"../config":33}],39:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -2683,4 +2805,4 @@ exports.render = render;
 var typecheck = function (t, renderFuncs) { return t; };
 exports.typecheck = typecheck;
 
-},{"./config":25,"./html":29}]},{},[1]);
+},{"./config":33,"./html":37}]},{},[1]);

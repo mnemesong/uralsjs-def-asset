@@ -29,4 +29,4 @@ exports.css = __importStar(require("./css"));
 exports.def = __importStar(require("./def"));
 exports.htmlTemplate = __importStar(require("./html-template"));
 exports.dsl = __importStar(require("uralsjs-templator"));
-exports.script = __importStar(require("./script"));
+exports.script = __importStar(require("./script/index"));

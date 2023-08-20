@@ -26,9 +26,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var path = __importStar(require("path"));
 var browserify = __importStar(require("browserify"));
 var fs = __importStar(require("fs"));
-var resPath = path.resolve(module.path, "..", "..", "resources");
 var testResPath = path.resolve(module.path, "..", "..", "test-res");
-var srcPath = path.resolve(module.path, "..", "src");
 var browserifyFile = function (srcPath, targetPath) {
     try {
         fs.unlinkSync(targetPath);
@@ -41,4 +39,4 @@ var browserifyFile = function (srcPath, targetPath) {
         .pipe(mainScriptFileStream);
 };
 browserifyFile(path.resolve(module.path, "bundle.js"), path.resolve(testResPath, "bundle.js"));
-fs.copyFileSync(path.resolve(srcPath, "script.js"), path.resolve(testResPath, "main.js"));
+fs.copyFileSync(path.resolve(module.path, "main.js"), path.resolve(testResPath, "main.js"));

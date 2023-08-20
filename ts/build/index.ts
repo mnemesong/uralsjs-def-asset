@@ -2,9 +2,7 @@ import * as path from "path"
 import * as browserify from "browserify"
 import * as fs from "fs"
 
-const resPath = path.resolve(module.path, "..", "..", "resources")
 const testResPath = path.resolve(module.path, "..", "..", "test-res")
-const srcPath = path.resolve(module.path, "..", "src")
 
 const browserifyFile = (srcPath: string, targetPath: string) => {
     try{
@@ -22,4 +20,4 @@ browserifyFile(
     path.resolve(testResPath, "bundle.js")
 )
 
-fs.copyFileSync(path.resolve(srcPath, "script.js"), path.resolve(testResPath, "main.js"))
+fs.copyFileSync(path.resolve(module.path, "main.js"), path.resolve(testResPath, "main.js"))
