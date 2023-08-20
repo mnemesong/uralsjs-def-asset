@@ -27,7 +27,7 @@ const page1 = templator.render(
                         [ 'month-input' ],
                         [ 'search-input' ],
                         [ 'url-input' ],
-                        [ 'submit-input' ],
+                        [ 'submit-input'],
                     ],
                 ],
                 '&nbsp;',
@@ -54,7 +54,7 @@ const page2 = templator.render(
                     ['br'],
                     [
                         'btn-info',
-                        {},
+                        {onclick: "createAlert('Alert!')"},
                         "Success"
                     ]
                 ],

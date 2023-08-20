@@ -23,14 +23,22 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getScript = exports.dsl = exports.htmlTemplate = exports.def = exports.css = exports.tags = void 0;
-var fs = __importStar(require("fs"));
 var path = __importStar(require("path"));
-exports.tags = __importStar(require("./tags"));
-exports.css = __importStar(require("./css"));
-exports.def = __importStar(require("./def"));
-exports.htmlTemplate = __importStar(require("./html-template"));
-exports.dsl = __importStar(require("uralsjs-templator"));
-var getScript = function () { return fs
-    .readFileSync(path.resolve(module.path, "script.js")); };
-exports.getScript = getScript;
+var browserify = __importStar(require("browserify"));
+var fs = __importStar(require("fs"));
+var resPath = path.resolve(module.path, "..", "..", "resources");
+var testResPath = path.resolve(module.path, "..", "..", "test-res");
+var srcPath = path.resolve(module.path, "..", "src");
+var browserifyFile = function (srcPath, targetPath) {
+    try {
+        fs.unlinkSync(targetPath);
+    }
+    catch (e) { }
+    var mainScriptFileStream = fs.createWriteStream(targetPath);
+    var b = browserify.default();
+    b.add(srcPath)
+        .bundle()
+        .pipe(mainScriptFileStream);
+};
+browserifyFile(path.resolve(module.path, "bundle.js"), path.resolve(testResPath, "bundle.js"));
+fs.copyFileSync(path.resolve(srcPath, "script.js"), path.resolve(testResPath, "main.js"));

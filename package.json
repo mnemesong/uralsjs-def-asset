@@ -4,9 +4,7 @@
   "description": "uralsjs def asset bundle",
   "main": "js/src/index.js",
   "scripts": {
-    "build:compile": "tsc",
-    "build:test": "tsc && mocha ./js/test/**/*.js",
-    "build:browserify": "tsc && browserify ./js/test/app.js > test-res/bundle.js"
+    "build": "tsc && node ./js/build/index"
   },
   "keywords": [],
   "author": "Anatoly Starodubtsev <tostar74@mail.ru>",
@@ -17,7 +15,9 @@
     "@types/mocha": "^9.*",
     "@types/node": "^13.*",
     "browserify": "^17.0.0",
-    "deep-equal": "*"
+    "@types/browserify": "*",
+    "deep-equal": "*",
+    "uralsjs-axios-ajax": "*"
   },
   "dependencies": {
     "superstruct": "^0.12.2",
