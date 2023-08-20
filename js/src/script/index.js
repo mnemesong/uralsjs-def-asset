@@ -23,11 +23,11 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getFilePath = exports.getScriptText = void 0;
+exports.getScriptText = exports.getFilePath = void 0;
 var fs = __importStar(require("fs"));
 var path = __importStar(require("path"));
-var getScriptText = function () { return fs
-    .readFileSync(path.resolve(module.path, "script.js")); };
-exports.getScriptText = getScriptText;
-var getFilePath = function () { return path.resolve(module.path, "script.js"); };
+var getFilePath = function () { return path
+    .resolve(module.path, '..', '..', 'build', "main.js"); };
 exports.getFilePath = getFilePath;
+var getScriptText = function () { return fs.readFileSync((0, exports.getFilePath)()); };
+exports.getScriptText = getScriptText;
