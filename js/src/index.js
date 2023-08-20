@@ -23,12 +23,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.printIonIconScriptTag = exports.script = exports.dsl = exports.htmlTemplate = exports.def = exports.css = exports.tags = void 0;
+exports.script = exports.dsl = exports.htmlTemplate = exports.def = exports.css = exports.tags = void 0;
 exports.tags = __importStar(require("./tags"));
 exports.css = __importStar(require("./css"));
 exports.def = __importStar(require("./def"));
 exports.htmlTemplate = __importStar(require("./html-template"));
 exports.dsl = __importStar(require("uralsjs-templator"));
 exports.script = __importStar(require("./script/index"));
-var printIonIconScriptTag = function () { return "\n<script type=\"module\" src=\"https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js\"></script>\n<script nomodule src=\"https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js\"></script>"; };
-exports.printIonIconScriptTag = printIonIconScriptTag;

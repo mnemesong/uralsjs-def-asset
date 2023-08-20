@@ -7,7 +7,7 @@ export type T = {
     cssFileUrls: string[];
     jsFileUrls: string[];
     jsScripts: string[];
-    advTags?: string;
     bodyParams: htmlDsl.config.record.T;
 };
+export declare const printIonIconScriptTag: () => string;
 export declare const renderHtml: (t: T, content: string) => string;

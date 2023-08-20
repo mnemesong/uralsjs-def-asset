@@ -23,9 +23,11 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.renderHtml = void 0;
+exports.renderHtml = exports.printIonIconScriptTag = void 0;
 var htmlDslDef = __importStar(require("../src"));
 var htmlDsl = __importStar(require("uralsjs-templator"));
+var printIonIconScriptTag = function () { return "\n<script type=\"module\" src=\"https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js\"></script>\n<script nomodule src=\"https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js\"></script>"; };
+exports.printIonIconScriptTag = printIonIconScriptTag;
 var renderHtml = function (t, content) {
     return '<!DOCTYPE html>\n' + htmlDsl.render([
         'html',
@@ -56,10 +58,9 @@ var renderHtml = function (t, content) {
         ].concat(t.cssFileUrls.map(function (url) { return [
             'link', { rel: 'stylesheet', href: url }
         ]; })),
-        ['body', t.bodyParams, content],
+        ['body', t.bodyParams, content, (0, exports.printIonIconScriptTag)(),]
     ]
         .concat(t.jsFileUrls.map(function (url) { return ['script', { src: url }]; }))
-        .concat(t.jsScripts.map(function (script) { return ['script', {}, script]; }))
-        .concat([t.advTags ? t.advTags : '']), htmlDslDef.tags.renderer);
+        .concat(t.jsScripts.map(function (script) { return ['script', {}, script]; })), htmlDslDef.tags.renderer);
 };
 exports.renderHtml = renderHtml;

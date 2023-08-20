@@ -8,9 +8,12 @@ export type T = {
     cssFileUrls: string[],
     jsFileUrls: string[],
     jsScripts: string[],
-    advTags?: string,
     bodyParams: htmlDsl.config.record.T
 }
+
+export const printIonIconScriptTag = () => `
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>`
 
 export const renderHtml = (t: T, content: string): string => {
     return '<!DOCTYPE html>\n' + htmlDsl.render([
@@ -45,11 +48,10 @@ export const renderHtml = (t: T, content: string): string => {
             typeof htmlDsl.html.doubleTag.literals[number] 
             | typeof htmlDsl.html.singleTag.literals[number]
         >,
-        ['body', t.bodyParams, content],
+        ['body', t.bodyParams, content, printIonIconScriptTag(),]
     ]
         .concat(t.jsFileUrls.map(url => ['script', {src: url}]))
-        .concat(t.jsScripts.map(script => ['script', {}, script]))
-        .concat([t.advTags ? t.advTags : '']) as htmlDsl.T<
+        .concat(t.jsScripts.map(script => ['script', {}, script])) as htmlDsl.T<
             typeof htmlDsl.html.doubleTag.literals[number] 
     >, htmlDslDef.tags.renderer)
 }
