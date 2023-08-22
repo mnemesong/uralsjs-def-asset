@@ -16,5 +16,6 @@ export const config = {
     ...tags.btns.renderer,
     ...tags.navTopPanel.renderer,
     ...tags.navTopSpace.renderer,
+    ...tags.navTopItem.renderer,
     ...tags.ionIcon.renderer,
 }
