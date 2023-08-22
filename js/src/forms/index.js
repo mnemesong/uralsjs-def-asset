@@ -23,11 +23,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.forms = exports.script = exports.dsl = exports.htmlTemplate = exports.def = exports.css = exports.tags = void 0;
-exports.tags = __importStar(require("./tags"));
-exports.css = __importStar(require("./css"));
-exports.def = __importStar(require("./def"));
-exports.htmlTemplate = __importStar(require("./html-template"));
-exports.dsl = __importStar(require("uralsjs-templator"));
-exports.script = __importStar(require("./script/index"));
-exports.forms = __importStar(require("./forms"));
+exports.whiteForm = exports.gallery = void 0;
+exports.gallery = __importStar(require("./gallery-overlay"));
+exports.whiteForm = __importStar(require("./white-form"));

@@ -41,7 +41,7 @@ exports.renderer = {
     'overlayer-gallery': function (params, content) {
         var cls = params.class
             ? ('overlayer ' + params.class)
-            : params.class;
+            : 'overlayer';
         var p2 = __assign(__assign({}, params), { class: cls });
         return t.render(['div',
             p2,

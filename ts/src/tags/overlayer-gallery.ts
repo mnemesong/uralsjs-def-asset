@@ -6,7 +6,7 @@ export const renderer: t.config.T<typeof tag> = {
     'overlayer-gallery': (params, content) => {
         const cls = params.class
             ? ('overlayer ' + params.class)
-            : params.class
+            : 'overlayer'
         const p2 = {...params, ...{class: cls}}
         return t.render(
             [   'div', 
