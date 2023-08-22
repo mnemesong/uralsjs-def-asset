@@ -32,6 +32,7 @@ import * as navTopPanel from "./nav-top-panel"
 import * as navTopSpace from "./nav-top-space"
 import * as navTopItem from "./nav-top-item"
 import * as ionIcon from "./ion-icon"
+import { type } from "os"
 
 export const renderer = {
     ...t.html.config,
@@ -50,4 +51,6 @@ export const renderer = {
     ...navTopSpace.renderer,
     ...navTopItem.renderer,
     ...ionIcon.renderer,
-}
+} as const
+
+export type T = keyof typeof renderer
