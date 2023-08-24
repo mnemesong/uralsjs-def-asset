@@ -28,6 +28,6 @@ var t = __importStar(require("uralsjs-templator"));
 exports.literal = 'ion-icon';
 exports.renderer = {
     'ion-icon': function (params, content) {
-        return "<ion-icon ".concat(t.config.record.render(params), ">").concat(content, "<ion-icon>");
+        return "<ion-icon ".concat(t.config.record.render(params), ">").concat(content, "</ion-icon>");
     }
 };
